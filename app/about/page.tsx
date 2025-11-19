@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useRef, useState } from "react";
+import React, { JSX, useEffect, useRef, useState } from "react";
 import { motion } from "framer-motion";
 import {
   Users,
@@ -10,6 +10,8 @@ import {
   Globe,
   Briefcase,
   Mail,
+  Globe2,
+  ArrowRight,
 } from "lucide-react";
 
 type StatItem = { label: string; value: number; icon: JSX.Element; suffix?: string };
@@ -56,44 +58,44 @@ export default function AboutUs() {
       {/* HERO */}
       <section className="relative h-[85vh] w-full flex items-center justify-center text-white overflow-hidden">
 
-    {/* Background Image */}
-    <div
-        className="absolute inset-0 bg-cover bg-center"
-        style={{ backgroundImage: "url('/about/about_bg.jpg')" }}
-    ></div>
+        {/* Background Image */}
+        <div
+          className="absolute inset-0 bg-cover bg-center"
+          style={{ backgroundImage: "url('/about/about_bg.jpg')" }}
+        ></div>
 
-    {/* Dark Overlay */}
-    <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]"></div>
+        {/* Dark Overlay */}
+        <div className="absolute inset-0 bg-black/70 backdrop-blur-[1px]"></div>
 
-    {/* Subtle Logo Watermark */}
-    <div className="absolute inset-0 flex items-center justify-center opacity-10">
-        {/* <img
+        {/* Subtle Logo Watermark */}
+        <div className="absolute inset-0 flex items-center justify-center opacity-10">
+          {/* <img
             src="/logo/itsasoo-logo.png"
             className="w-[70%] md:w-[40%] object-contain"
             alt="ITSASOO Logo Watermark"
         /> */}
-    </div>
+        </div>
 
-    {/* Fog & Particle Effects */}
-    <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-20"></div>
-    <div className="absolute inset-0 bg-[url('/effects/particles.png')] opacity-10"></div>
+        {/* Fog & Particle Effects */}
+        <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-20"></div>
+        <div className="absolute inset-0 bg-[url('/effects/particles.png')] opacity-10"></div>
 
-    {/* Content */}
-    <div className="relative max-w-4xl mx-auto text-center px-6">
-        <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
+        {/* Content */}
+        <div className="relative max-w-4xl mx-auto text-center px-6">
+          <h1 className="text-5xl md:text-6xl font-extrabold leading-tight">
             About <span className="text-blue-600">ITSASOO SOLUTIONS</span>
-        </h1>
+          </h1>
 
-        <p className="text-lg md:text-xl text-blue-100 mt-4 max-w-2xl mx-auto">
-            Precision. Compliance. Growth.  
+          <p className="text-lg md:text-xl text-blue-100 mt-4 max-w-2xl mx-auto">
+            Precision. Compliance. Growth.
             Delivering world-class Finance, Accounting, IT & Digital Transformation for global enterprises.
-        </p>
-    </div>
-</section>
+          </p>
+        </div>
+      </section>
 
 
       {/* WHY / VALUES + STATS GLASS CUBES */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-[#f1f3ff]">
         <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
           {/* left: mission & values */}
           <div className="lg:col-span-2">
@@ -129,14 +131,14 @@ export default function AboutUs() {
                   initial={{ opacity: 0, y: 10 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5, delay: i * 0.06 }}
-                  className="flex gap-4 items-start bg-[#F8FAFD] p-4 rounded-xl border border-[#E6F2FF]"
+                  className="flex gap-4 items-start bg-[#03092b] p-4 rounded-xl border border-[#E6F2FF] hover:bg-[#08086d] transition-all hover:shadow-2xl"
                 >
                   <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-[#00A7FF] to-[#0071FF] flex items-center justify-center text-white shadow">
                     <CheckCircle className="w-5 h-5" />
                   </div>
                   <div>
-                    <div className="font-semibold text-[#062033]">{v.title}</div>
-                    <div className="text-sm text-slate-600">{v.text}</div>
+                    <div className="font-semibold text-[#f4f6f8]">{v.title}</div>
+                    <div className="text-sm text-[#969595]">{v.text}</div>
                   </div>
                 </motion.div>
               ))}
@@ -151,14 +153,14 @@ export default function AboutUs() {
                 initial={{ opacity: 0, y: 8 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: idx * 0.08 }}
-                className="rounded-2xl p-5 bg-white/6 backdrop-blur-md border border-white/10 shadow"
+                className="rounded-2xl p-5 bg-[#03092b] backdrop-blur-md border border-white/10 shadow hover:shadow-2xl hover:bg-[#08086d] transition-all"
               >
                 <div className="flex items-center gap-4">
                   <div className="p-3 rounded-lg bg-gradient-to-br from-[#007BFF] to-[#00C6FF] text-white">
                     {s.icon}
                   </div>
                   <div>
-                    <div className="text-2xl font-bold text-[#062033]">
+                    <div className="text-2xl font-bold text-[#ffffff]">
                       {counts[idx]}{s.suffix ?? ""}
                     </div>
                     <div className="text-sm text-slate-500">{s.label}</div>
@@ -170,115 +172,215 @@ export default function AboutUs() {
         </div>
       </section>
 
-      {/* TIMELINE / APPROACH */}
-      <section className="py-20 bg-[#F5FBFF]">
-        <div className="max-w-7xl mx-auto px-6">
-          <motion.h3
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-2xl font-bold text-[#062033] text-center"
-          >
-            How we work — Simple, Secure, Measurable
-          </motion.h3>
+      {/* ================================================================= */}
+      {/* MISSION + VISION                                                  */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-[#0a0a2b]">
+        <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-14">
 
-          <div className="mt-10 grid grid-cols-1 md:grid-cols-4 gap-6">
-            {[
-              { title: "Assess", text: "Process study, compliance checklist", icon: <Clock /> },
-              { title: "Onboard", text: "Dedicated team & secure access", icon: <Users /> },
-              { title: "Operate", text: "Daily ops with SLAs & automation", icon: <Briefcase /> },
-              { title: "Scale", text: "Continuous improvement & reporting", icon: <Award /> },
-            ].map((s, i) => (
-              <motion.div
-                key={s.title}
-                initial={{ opacity: 0, y: 10 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.08 }}
-                className="bg-white p-6 rounded-2xl shadow-md border border-[#E6F3FF]"
-              >
-                <div className="inline-flex items-center justify-center gap-3 rounded-md bg-[#ECF9FF] p-3">
-                  <div className="text-[#0079E6]">{s.icon}</div>
-                </div>
-                <h4 className="mt-4 font-semibold text-[#062033]">{s.title}</h4>
-                <p className="mt-2 text-sm text-slate-600">{s.text}</p>
-              </motion.div>
-            ))}
-          </div>
+          {/* Mission */}
+          <motion.div
+            initial={{ opacity: 0, x: -80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="p-8 rounded-3xl bg-[#EAF4FF] shadow"
+          >
+            <h2 className="text-3xl font-bold mb-3">Our Mission</h2>
+            <p className="text-slate-700 leading-relaxed">
+              To empower global businesses with precision-driven financial management,
+              compliance-ready accounting, and modern digital transformation — enabling
+              them to scale faster, operate smarter, and build long-term sustainability.
+            </p>
+          </motion.div>
+
+          {/* Vision */}
+          <motion.div
+            initial={{ opacity: 0, x: 80 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            className="p-8 rounded-3xl bg-[#EAF4FF] shadow"
+          >
+            <h2 className="text-3xl font-bold mb-3">Our Vision</h2>
+            <p className="text-slate-700 leading-relaxed">
+              To become a globally trusted outsourcing partner — setting new benchmarks
+              in accuracy, transparency, speed, and innovation across Finance and IT.
+            </p>
+          </motion.div>
+
         </div>
       </section>
 
-      {/* TEAM */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <motion.h3
-            initial={{ opacity: 0, y: 8 }}
+
+      {/* ================================================================= */}
+      {/* VALUES SECTION                                                   */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-[#f1f3ff] text-black relative overflow-hidden">
+
+        <div className="absolute right-[-200px] top-[-200px] w-[500px] h-[500px] bg-[#a8a8ce] rounded-full blur-[120px]" />
+
+        <div className="max-w-7xl mx-auto px-6">
+          <motion.h2
+            initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-3xl font-bold text-[#062033]"
+            className="text-6xl font-bold text-center"
           >
-            Leadership & Key Specialists
-          </motion.h3>
+            Our Core Values
+          </motion.h2>
 
-          <p className="mt-3 text-slate-600 max-w-2xl mx-auto">
-            Experienced professionals across finance operations, accounting, tax and software engineering.
-          </p>
-
-          <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {/* placeholders */}
-            {Array.from({ length: 8 }).map((_, i) => (
+          <div className="grid md:grid-cols-4 gap-10 mt-14">
+            {[
+              {
+                title: "Accuracy",
+                desc: "Zero-error commitment in finance & accounting.",
+              },
+              {
+                title: "Transparency",
+                desc: "Real-time insights and clear communication.",
+              },
+              {
+                title: "Speed",
+                desc: "Efficient delivery without compromising quality.",
+              },
+              {
+                title: "Innovation",
+                desc: "Modern technology + automation-driven workflows.",
+              },
+            ].map((v, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 8 }}
+                initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: i * 0.04 }}
-                className="bg-white rounded-2xl p-4 border border-[#E6F3FF] shadow-sm"
+                transition={{ delay: i * 0.1 }}
+                className="p-8 bg-[#a7b9da] rounded-2xl backdrop-blur shadow-lg text-center"
               >
-                <div className="w-full aspect-w-1 aspect-h-1 rounded-xl overflow-hidden bg-gradient-to-br from-[#E6F9FF] to-[#DDEEFF]">
-                  {/* placeholder image box */}
-                  <div className="w-full h-44 flex items-center justify-center text-slate-400">
-                    <svg width="54" height="54" viewBox="0 0 24 24" fill="none" className="opacity-50">
-                      <path d="M12 12a5 5 0 100-10 5 5 0 000 10zm0 2c-6 0-8 3-8 6v1h16v-1c0-3-2-6-8-6z" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" strokeLinejoin="round"></path>
-                    </svg>
-                  </div>
-                </div>
-
-                <div className="mt-3 text-left">
-                  <div className="font-semibold text-[#062033]">Name Surname</div>
-                  <div className="text-sm text-slate-500">Role / Specialist</div>
-                  <div className="mt-3 text-sm text-slate-600">
-                    10+ years in finance operations and outsourcing, working with enterprise clients.
-                  </div>
-                </div>
+                <h3 className="text-xl font-semibold mb-2">{v.title}</h3>
+                <p className="text-[#2a2a2b]">{v.desc}</p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* TRUSTED BY + PARTNERS (LOGOS) */}
-      <section className="py-12 bg-[#F5FBFF]">
-        <div className="max-w-7xl mx-auto px-6 text-center">
-          <div className="text-slate-600">Trusted by</div>
-          <div className="mt-6 flex gap-8 items-center justify-center flex-wrap">
-            {["Client 1","Client 2","Client 3","Client 4","Client 5"].map((n,i)=>(
-              <div key={i} className="w-28 h-12 bg-white/90 rounded-md flex items-center justify-center border border-[#E8F4FF] shadow-sm">
-                <span className="text-sm text-slate-500">{n}</span>
-              </div>
+
+      {/* ================================================================= */}
+      {/* CAPABILITIES SECTION                                             */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-[#06162b]">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-4xl font-bold text-[#d8e2e9] text-center">
+            Our Capabilities
+          </h2>
+
+          <div className="grid md:grid-cols-3 gap-10 mt-14">
+            {[
+              "Finance & Accounts Outsourcing",
+              "Bookkeeping & Finalization",
+              "Tax Preparation (Global)",
+              "Payroll Management",
+              "IT Services & Software Development",
+              "Digital Marketing & Branding",
+            ].map((cap, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 12 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                className="p-6 bg-white rounded-2xl shadow border border-blue-100"
+              >
+                <div className="flex items-start gap-3">
+                  <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />
+                  <span className="text-lg font-medium">{cap}</span>
+                </div>
+              </motion.div>
             ))}
           </div>
+
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="py-20 bg-gradient-to-r from-[#0078E6] to-[#00C6FF] text-white">
-        <div className="max-w-6xl mx-auto px-6 text-center">
-          <h3 className="text-3xl md:text-4xl font-bold">Ready to modernize your finance functions?</h3>
-          <p className="mt-3 text-slate-100 max-w-2xl mx-auto">Talk to our experts and get a tailored engagement plan.</p>
-          <div className="mt-8 flex justify-center gap-4">
-            <a href="/contact" className="bg-white text-[#0078E6] font-semibold px-6 py-3 rounded-full shadow">Get in touch</a>
-            <a href="/services" className="border border-white/30 px-6 py-3 rounded-full">View services</a>
+
+      {/* ================================================================= */}
+      {/* WHY US SECTION                                                   */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-white">
+        <div className="max-w-7xl mx-auto px-6">
+
+          <h2 className="text-4xl font-bold text-center">Why Choose Us?</h2>
+
+          <div className="grid md:grid-cols-2 gap-12 mt-14">
+            {[
+              "Specialized finance teams for USA, Canada, UK & Australia",
+              "Strict compliance with GAAP, IFRS, HMRC, CRA & IRS",
+              "Integrated IT + Finance services under one roof",
+              "24/5 global delivery model with rapid turnaround",
+              "Secure infrastructure with NDA-backed operations",
+              "Cost-effective outsourcing with enterprise quality",
+            ].map((point, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, x: i % 2 === 0 ? -20 : 20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                className="flex items-start gap-3 text-lg text-slate-700"
+              >
+                <CheckCircle className="text-blue-600 w-6 h-6" />
+                <span>{point}</span>
+              </motion.div>
+            ))}
           </div>
+
         </div>
+      </section>
+
+
+
+      {/* ================================================================= */}
+      {/* GLOBAL PRESENCE                                                  */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-[#091322] text-white text-center">
+        <Globe2 className="mx-auto w-12 h-12 text-blue-300" />
+
+        <h2 className="text-4xl font-bold mt-4">Our Global Presence</h2>
+        <p className="mt-3 text-blue-100 max-w-2xl mx-auto">
+          Supporting clients across North America, Europe, Asia-Pacific, and the Middle East.
+        </p>
+
+        <div className="mt-10 flex flex-wrap justify-center gap-6 text-blue-200 font-medium">
+          {["USA", "Canada", "United Kingdom", "Australia", "New Zealand", "India"].map((loc, i) => (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 8 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              className="bg-white/10 px-6 py-3 rounded-full backdrop-blur"
+            >
+              {loc}
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* TIMELINE / APPROACH */}
+
+
+
+
+
+
+
+      {/* ================================================================= */}
+      {/* CTA                                                              */}
+      {/* ================================================================= */}
+      <section className="py-24 bg-gradient-to-r from-blue-100 to-blue-200 text-center">
+        <h2 className="text-4xl font-extrabold text-blue-950">
+          Ready to Work With a Global Finance & Technology Partner?
+        </h2>
+        <p className="mt-3 text-blue-800 text-lg max-w-2xl mx-auto">
+          Let’s streamline your operations, reduce costs, and unlock next-level growth.
+        </p>
+
+        <a
+          href="/contact"
+          className="mt-8 inline-flex items-center gap-2 bg-white px-10 py-4 rounded-full font-semibold text-blue-700 shadow-lg hover:bg-blue-50 transition"
+        >
+          Contact Us <ArrowRight className="w-5 h-5" />
+        </a>
       </section>
 
       {/* Simple footer */}
@@ -294,3 +396,29 @@ export default function AboutUs() {
     </main>
   );
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -20,7 +20,7 @@ const services = [
     {
         title: "IT Outsourcing",
         icon: Laptop,
-        href: "/services/it-outsourcing",
+        href: "/services/itoutsourcing",
         bg: "/it.jpg",
         description:
             "Full-cycle development, cloud engineering, automation and secure IT management.",

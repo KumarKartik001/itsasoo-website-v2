@@ -137,11 +137,11 @@ export default function Navbar() {
                                             </AnimatePresence>
                                         </div>
 
-                                        <Link href="/services/it" className="dropdown-item">
+                                        <Link href="/services/itoutsourcing" className="dropdown-item">
                                             IT Outsourcing
                                         </Link>
 
-                                        <Link href="/services/digital-marketing" className="dropdown-item">
+                                        <Link href="/services/digitalmarketing" className="dropdown-item">
                                             Digital Marketing
                                         </Link>
                                     </motion.div>
