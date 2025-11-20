@@ -54,10 +54,10 @@ export default function Navbar() {
                     <div className="hidden md:flex items-center gap-8 ml-auto">
 
                         {/* HOME */}
-                        <Link href="/" className="nav-link">Home</Link>
+                        <Link href="/" className="nav-link navsize">Home</Link>
 
                         {/* ABOUT */}
-                        <Link href="/about" className="nav-link">About Us</Link>
+                        <Link href="/about" className="nav-link navsize">About Us</Link>
 
                         {/* SERVICES — dropdown */}
                         <div
@@ -73,10 +73,11 @@ export default function Navbar() {
                                 }, 150);
                             }}
                         >
-                            <span className="nav-link cursor-pointer">
-                                Services
-                            </span>
-
+                            <Link href="/services">
+                                <span className="nav-link cursor-pointer navsize">
+                                    Services
+                                </span>
+                            </Link>
                             {/* DROPDOWN */}
                             <AnimatePresence>
                                 {servicesOpen && (
@@ -89,7 +90,7 @@ export default function Navbar() {
                                             absolute left-0 top-8 mt-4
                                             w-52 bg-white/90 backdrop-blur-xl
                                             border border-white/60 shadow-lg
-                                            rounded-xl p-2
+                                            rounded-xl p-2 navdrop
                                         "
                                     >
 
@@ -106,11 +107,12 @@ export default function Navbar() {
                                                 }, 150);
                                             }}
                                         >
-                                            <div className="dropdown-item flex justify-between">
-                                                Finance & Accounts
-                                                <span className="text-neutral-600"> ›</span>
-                                            </div>
-
+                                            <Link href="/services/finance" className="">
+                                                <div className="dropdown-item flex justify-between">
+                                                    Finance & Accounts
+                                                    <span className="text-neutral-600"> ›</span>
+                                                </div>
+                                            </Link>
                                             {/* SUB MENU */}
                                             <AnimatePresence>
                                                 {financeOpen && (
@@ -123,7 +125,7 @@ export default function Navbar() {
                                                             absolute top-0 left-[100%] ml-2
                                                             w-52 bg-white/90 backdrop-blur-xl
                                                             border border-white/60 shadow-lg
-                                                            rounded-xl p-2
+                                                            rounded-xl p-2 navdrop
                                                         "
                                                     >
                                                         <Link href="/services/finance/usa" className="dropdown-item">USA</Link>
@@ -150,7 +152,7 @@ export default function Navbar() {
                         </div>
 
                         {/* CONTACT */}
-                        <Link href="/contact" className="nav-link">Contact Us</Link>
+                        <Link href="/contact" className="nav-link navsize">Contact Us</Link>
 
                     </div>
 

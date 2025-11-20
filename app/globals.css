@@ -37,3 +37,13 @@ body {
 /* audio {
   display: none;
 } */
+
+.navsize {
+  font-size: 1.25rem;
+  font-weight: 800;
+}
+
+.navdrop {
+  font-size: 1rem;
+  font-weight: 600;
+}

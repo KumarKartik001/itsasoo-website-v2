@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 
 export default function Hero() {
     return (
-        <section className="relative w-screen h-screen overflow-hidden">
+        <section className="relative w-full h-screen overflow-hidden">
 
             {/* Background Video */}
             {/* add the "muted" attribute if you want to mute the video running in the background.  */}
