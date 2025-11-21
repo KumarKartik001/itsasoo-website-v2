@@ -75,15 +75,15 @@ export default function IndiaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Bookkeeping & Financial Finalization</h3>
                         <p className="text-black leading-relaxed">
-                            Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
+                            India-based bookkeeping services deliver precise account finalization for companies expanding locally and globally.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Bank, credit card & loan reconciliation",
-                                "General ledger clean-up & review",
-                                "Year-end adjustments & accruals",
-                                "Finalization support for T2 corporate filings",
+                                "India tax-compliant books",
+                                "Global accounting support",
+                                "Quick account closure",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#ff6600] w-6 h-6 mt-1" />
@@ -103,15 +103,15 @@ export default function IndiaFinancePage() {
                     <motion.div {...fadeSide(-30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Financial Reporting</h3>
                         <p className="text-black leading-relaxed">
-                            Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
+                            Financial reporting in India and worldwide brings transparency, meeting regional and international standards.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Balance sheet preparation",
-                                "Profit & loss statements",
-                                "Cash flow statements",
-                                "Management & KPI reporting",
+                                "Reports for startups and MNCs",
+                                "Multi-country compliance",
+                                "Performance tracking",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#ff6600] w-6 h-6 mt-1" />
@@ -147,14 +147,15 @@ export default function IndiaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Tax Return Preparation</h3>
                         <p className="text-black leading-relaxed">
-                            Fast, accurate and compliant tax preparation for individuals and corporations.
+                            Tax return preparation in India and other regions ensures proper Income Tax, VAT, and cross-border regulatory compliance.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Personal Return – T1",
-                                "Corporate Return – T2",
-                                "GST/HST filing & reconciliation",
+                                "IT & VAT expertise",
+                                "Cross-border compliance",
+                                "Refund maximization",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#ff6600] w-6 h-6 mt-1" />
@@ -174,15 +175,15 @@ export default function IndiaFinancePage() {
                     <motion.div {...fadeSide(-30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Payroll Processing</h3>
                         <p className="text-black leading-relaxed">
-                            Fully managed and compliant Indian payroll services for small and large firms.
+                            Payroll services in India support PF, ESI, and statutory deductions while scaling for global teams.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly, bi-weekly, monthly payroll",
-                                "CPP, EI & tax calculations",
-                                "T4, T4A preparation",
-                                "Payroll reconciliations",
+                                "Statutory compliance (PF/ESI)",
+                                "Scalable for multinationals",
+                                "On-time payroll management",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#ff6600] w-6 h-6 mt-1" />
@@ -218,13 +219,15 @@ export default function IndiaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Sales Tax Filing</h3>
                         <p className="text-black leading-relaxed">
-                            Hassle-free GST/HST calculations, compliance checks and timely filing.
+                            GST filing services for India and global businesses offer multi-state returns and international regulatory adherence.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "GST/HST computation",
-                                "Online sales tax filing",
+                                "GST expertise",
+                                "Multi-jurisdiction coverage",
+                                "Reliable filings",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#ff6600] w-6 h-6 mt-1" />

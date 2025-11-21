@@ -72,15 +72,15 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Bookkeeping & Financial Finalization</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
+                            Australian bookkeeping services ensure your accounts are finalized, audit-ready and meet BAS and ATO requirements.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Bank, credit card & loan reconciliation",
-                                "General ledger clean-up & review",
-                                "Year-end adjustments & accruals",
-                                "Finalization support for T2 corporate filings",
+                                "BAS-ready bookkeeping",
+                                "Audit support available",
+                                "End-of-year account service",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />
@@ -100,15 +100,15 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(-30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Financial Reporting</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
+                            Australia-focused financial reporting delivers easy-to-understand statements that satisfy AASB standards and business needs.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Balance sheet preparation",
-                                "Profit & loss statements",
-                                "Cash flow statements",
-                                "Management & KPI reporting",
+                                "Compliant with AASB",
+                                "Detailed business reports",
+                                "Growth-focused insights",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />
@@ -144,14 +144,15 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Tax Return Preparation</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Fast, accurate and compliant tax preparation for individuals and corporations.
+                            Tax return preparation in Australia helps you maximize refunds and handle complex returns for both individuals and businesses.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Personal Return – T1",
-                                "Corporate Return – T2",
-                                "GST/HST filing & reconciliation",
+                                "Refund maximization strategies",
+                                "Fast multi-tax returns",
+                                "ATO requirements fulfilled",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />
@@ -171,15 +172,15 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(-30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Payroll Processing</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Fully managed and compliant Canadian payroll services for small and large firms.
+                            Our payroll processing is tailored for Australia’s PAYG and superannuation, guaranteeing accurate and Fair Work Act compliance.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly, bi-weekly, monthly payroll",
-                                "CPP, EI & tax calculations",
-                                "T4, T4A preparation",
-                                "Payroll reconciliations",
+                                "PAYG and superannuation included",
+                                "Fair Work compliance",
+                                "On-time staff payments",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />
@@ -215,13 +216,15 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Sales Tax Filing</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Hassle-free GST/HST calculations, compliance checks and timely filing.
+                            BAS and GST filing for Australian companies keeps your business on track with all state and federal regulations.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "GST/HST computation",
-                                "Online sales tax filing",
+                                "BAS/GST filing expertise",
+                                "Multi-state compliance",
+                                "Reliable, prompt submissions",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-blue-600 w-6 h-6 mt-1" />

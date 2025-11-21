@@ -187,7 +187,7 @@ const ProcessTimelineSection: React.FC = () => (
                         transition={{ duration: 0.7, delay: i * 0.15 }}
                         className={`mb-16 flex w-full max-w-4xl relative ${isLeft ? 'flex-row' : 'flex-row-reverse'}`}
                     >
-                        <div className="absolute top-6 left-[-16px] bg-[#4FC3F7] rounded-full w-8 h-8 shadow-md z-20" />
+                        <div className="absolute top-6 -left-4 bg-[#4FC3F7] rounded-full w-8 h-8 shadow-md z-20" />
                         <div className="w-1/2 max-w-[280px] rounded-xl overflow-hidden shadow-lg">
                             <img src={image} alt={title} className="w-full h-40 object-cover rounded-xl" />
                         </div>
@@ -358,7 +358,7 @@ const TestimonialsSection: React.FC = () => (
 
 // 🔟 Call to Action Strip
 const CTAStrip: React.FC = () => (
-    <section className="py-20 bg-gradient-to-r from-[#031A2F] via-[#064A7F] to-[#4FC3F7] text-white text-center relative overflow-hidden">
+    <section className="py-20 bg-linear-to-r from-[#031A2F] via-[#064A7F] to-[#4FC3F7] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl mx-auto px-6 z-20 relative">
             <h2 className="text-5xl font-extrabold mb-6 drop-shadow-lg">
                 Ready to Scale Your Digital Presence?
@@ -390,7 +390,7 @@ const NewsletterSection: React.FC = () => (
             <input
                 type="email"
                 placeholder="Your email"
-                className="flex-grow rounded-full px-6 py-3 outline-none border border-blue-300 placeholder-blue-400 focus:ring-4 focus:ring-blue-400"
+                className="grow rounded-full px-6 py-3 outline-none border border-blue-300 placeholder-blue-400 focus:ring-4 focus:ring-blue-400"
             />
             <button
                 type="submit"
@@ -410,9 +410,9 @@ export default function DigitalMarketingServicesPage() {
             <HeroSection />
             <ServicesSection />
             <WhyChooseUsSection />
-            <MetricsSection />
-            <IndustriesSection />
+            {/* <MetricsSection /> */}
             <CaseStudiesSection />
+            <IndustriesSection />
             <TestimonialsSection />
             {/* <GlobalPresenceMap /> */}
             <GlobalPresenceInfoSection />

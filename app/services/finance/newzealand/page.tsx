@@ -64,15 +64,15 @@ export default function newzealandFinancePage() {
                             Bookkeeping & Financial Finalization
                         </h3>
                         <p className="text-[black] leading-relaxed">
-                            Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
+                            New Zealand bookkeeping solutions keep your accounts IRD-compliant and ensure smooth year-end financial tracking.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Bank, credit card & loan reconciliation",
-                                "General ledger clean-up & review",
-                                "Year-end adjustments & accruals",
-                                "Finalization support for T2 corporate filings",
+                                "IRD-compliant books",
+                                "End-of-year account reconciliation",
+                                "Fast bookkeeping support",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[blue] w-6 h-6 mt-1" />
@@ -96,15 +96,15 @@ export default function newzealandFinancePage() {
                             Financial Reporting
                         </h3>
                         <p className="text-[black] leading-relaxed">
-                            Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
+                            Our NZ financial reporting services give Kiwi companies the clarity and compliance they need to succeed.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Balance sheet preparation",
-                                "Profit & loss statements",
-                                "Cash flow statements",
-                                "Management & KPI reporting",
+                                "Tailored business reports",
+                                "Regulatory compliance maintained",
+                                "Clear performance snapshots",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[blue] w-6 h-6 mt-1" />
@@ -138,14 +138,15 @@ export default function newzealandFinancePage() {
                             Tax Return Preparation
                         </h3>
                         <p className="text-[black] leading-relaxed">
-                            Fast, accurate and compliant tax preparation for individuals and corporations.
+                            Tax return preparation in New Zealand guarantees proper refunds and accurate IRD filings for local and international businesses.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Personal Return – T1",
-                                "Corporate Return – T2",
-                                "GST/HST filing & reconciliation",
+                                "Maximized tax refunds",
+                                "IRD filings handled",
+                                "Multi-entity coverage",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[blue] w-6 h-6 mt-1" />
@@ -169,15 +170,14 @@ export default function newzealandFinancePage() {
                             Payroll Processing
                         </h3>
                         <p className="text-[black] leading-relaxed">
-                            Fully managed and compliant Canadian payroll services for small and large firms.
+                            Kiwi payroll processing covers PAYE, KiwiSaver, and employee leave management, simplifying HR processes.
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly, bi-weekly, monthly payroll",
-                                "CPP, EI & tax calculations",
-                                "T4, T4A preparation",
-                                "Payroll reconciliations",
+                                "PAYE and KiwiSaver included",
+                                "Leave management streamlined",
+                                "Fast salary disbursement",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[blue] w-6 h-6 mt-1" />
@@ -211,13 +211,15 @@ export default function newzealandFinancePage() {
                             Sales Tax Filing
                         </h3>
                         <p className="text-[black] leading-relaxed">
-                            Hassle-free GST/HST calculations, compliance checks and timely filing.
+                            Enjoy seamless GST filing services for New Zealand businesses, compliant with the latest ATO requirements.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "GST/HST computation",
-                                "Online sales tax filing",
+                                "GST compliance ensured",
+                                "Timely return submissions",
+                                "Support for all transactions",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[blue] w-6 h-6 mt-1" />

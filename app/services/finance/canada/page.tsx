@@ -82,15 +82,15 @@ export default function CanadaFinancePage() {
                             Bookkeeping & Financial Finalization
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
+                            Canadian bookkeeping services keep your accounts accurate and finalized, helping maintain CRA compliance and easy audits.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Bank, credit card & loan reconciliation",
-                                "General ledger clean-up & review",
-                                "Year-end adjustments & accruals",
-                                "Finalization support for T2 corporate filings",
+                                "CRA-compliant books",
+                                "Tailored solutions for Canadian firms",
+                                "Hassle-free year-end closing",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[#D9042B] w-6 h-6 mt-1" />
@@ -113,15 +113,15 @@ export default function CanadaFinancePage() {
                             Financial Reporting
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
+                            Our Canadian financial reporting helps you stay on top of your business performance while meeting all government standards.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Balance sheet preparation",
-                                "Profit & loss statements",
-                                "Cash flow statements",
-                                "Management & KPI reporting",
+                                "Monthly, quarterly, and annual reports ",
+                                "Regulatory-standard statements",
+                                "Easy-to-read summaries",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[#D9042B] w-6 h-6 mt-1" />
@@ -160,14 +160,15 @@ export default function CanadaFinancePage() {
                             Tax Return Preparation
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Fast, accurate and compliant tax preparation for individuals and corporations.
+                            Expert tax return preparation in Canada maximizes your credits and streamlines both personal and corporate filings with the CRA.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Personal Return – T1",
-                                "Corporate Return – T2",
-                                "GST/HST filing & reconciliation",
+                                "Personal & business returns",
+                                "Tax credits identified",
+                                "Quick CRA submissions",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[#D9042B] w-6 h-6 mt-1" />
@@ -190,15 +191,15 @@ export default function CanadaFinancePage() {
                             Payroll Processing
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Fully managed and compliant Canadian payroll services for small and large firms.
+                            Efficient Canadian payroll processing services handle remittances, deductions, and bilingual support for any sector.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly, bi-weekly, monthly payroll",
-                                "CPP, EI & tax calculations",
-                                "T4, T4A preparation",
-                                "Payroll reconciliations",
+                                "Statutory deductions taken care of",
+                                "Reliable remittance processing",
+                                "Bilingual customer support",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[#D9042B] w-6 h-6 mt-1" />
@@ -237,13 +238,15 @@ export default function CanadaFinancePage() {
                             Sales Tax Filing
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Hassle-free GST/HST calculations, compliance checks and timely filing.
+                            We offer accurate GST/HST and provincial sales tax filing for Canadian businesses, perfect for retail, services, and e-commerce.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "GST/HST computation",
-                                "Online sales tax filing",
+                                "GST/HST compliance",
+                                "Provincial tax coverage",
+                                "Dedicated support for Canadian businesses",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
                                     <CheckCircle className="text-[#D9042B] w-6 h-6 mt-1" />

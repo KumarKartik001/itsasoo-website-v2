@@ -79,15 +79,15 @@ export default function UkFinancePage() {
                         </h3>
 
                         <p className="text-black leading-relaxed">
-                            Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
+                            Our UK bookkeeping services cover everything from daily transactions to finalization for HMRC, safeguarding your compliance.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Bank, credit card & loan reconciliation",
-                                "General ledger clean-up & review",
-                                "Year-end adjustments & accruals",
-                                "Finalization support for T2 corporate filings",
+                                "HMRC-compliant records",
+                                "Suitable for SMEs & sole traders",
+                                "Fast account finalization",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
@@ -111,15 +111,15 @@ export default function UkFinancePage() {
                         </h3>
 
                         <p className="text-black leading-relaxed">
-                            Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
+                            UK financial reporting services deliver actionable insights and ensure statutory requirements are met for growth and security.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Balance sheet preparation",
-                                "Profit & loss statements",
-                                "Cash flow statements",
-                                "Management & KPI reporting",
+                                "Statutory annual reporting",
+                                "Business intelligence provided",
+                                "Easy compliance",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
@@ -159,14 +159,15 @@ export default function UkFinancePage() {
                         </h3>
 
                         <p className="text-black leading-relaxed">
-                            Fast, accurate and compliant tax preparation for individuals and corporations.
+                            UK tax return preparation makes filings easy and accurate, helping individuals and companies avoid HMRC penalties and save on taxes.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Personal Return – T1",
-                                "Corporate Return – T2",
-                                "GST/HST filing & reconciliation",
+                                "Individual & corporate tax prep",
+                                "Penalty avoidance focus",
+                                "Maximized savings",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
@@ -190,15 +191,15 @@ export default function UkFinancePage() {
                         </h3>
 
                         <p className="text-black leading-relaxed">
-                            Fully managed and compliant UK payroll services for small and large firms.
+                            Professional UK payroll processing covers RTI, payslip management, and pension auto-enrollment, suitable for any business size.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly, bi-weekly, monthly payroll",
-                                "CPP, EI & tax calculations",
-                                "T4, T4A preparation",
-                                "Payroll reconciliations",
+                                "RTI-compliant payroll",
+                                "Pension enrollment included",
+                                "Timely staff payments",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
@@ -238,13 +239,14 @@ export default function UkFinancePage() {
                         </h3>
 
                         <p className="text-black leading-relaxed">
-                            Hassle-free GST/HST calculations, compliance checks and timely filing.
+                            Our team specializes in VAT filing for UK businesses, ensuring quarterly reports and compliance with MTD rules.
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "GST/HST computation",
-                                "Online sales tax filing",
+                                "VAT and MTD compliance",
+                                "Quarterly submissions",
+                                "Support for digital reporting",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />

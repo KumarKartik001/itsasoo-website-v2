@@ -6,29 +6,45 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X, ChevronRight } from "lucide-react";
 
 export default function Navbar() {
+    // Mobile menu open state
     const [isOpen, setIsOpen] = useState(false);
+    // Detect scroll for shrinking navbar
     const [scrolled, setScrolled] = useState(false);
 
-    // Desktop hover dropdowns
+    // Desktop dropdown states
     const [servicesOpen, setServicesOpen] = useState(false);
     const [financeOpen, setFinanceOpen] = useState(false);
 
-    // Mobile accordion dropdowns
+    // Mobile accordion states
     const [servicesMobile, setServicesMobile] = useState(false);
     const [financeMobile, setFinanceMobile] = useState(false);
 
+    // Hover timeouts for smooth dropdown
     const servicesTimeout = useRef<NodeJS.Timeout | null>(null);
     const financeTimeout = useRef<NodeJS.Timeout | null>(null);
 
-    // Detect scroll
+    // Scroll listener
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 10);
         window.addEventListener("scroll", onScroll);
         return () => window.removeEventListener("scroll", onScroll);
     }, []);
 
+    // Close all mobile menus
+    const closeAllMenus = () => {
+        setIsOpen(false);
+        setServicesMobile(false);
+        setFinanceMobile(false);
+    };
+
+    // Close desktop menus
+    const closeDesktopMenus = () => {
+        setServicesOpen(false);
+        setFinanceOpen(false);
+    };
+
     return (
-        <nav className="fixed top-4 left-0 right-0 z-999 flex justify-center px-4">
+        <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -50,9 +66,8 @@ export default function Navbar() {
 
                     {/* DESKTOP MENU */}
                     <div className="hidden md:flex items-center gap-8 ml-auto md:mr-5">
-
-                        <Link href="/" className="nav-link navsize">Home</Link>
-                        <Link href="/about" className="nav-link navsize">About Us</Link>
+                        <Link href="/" className="nav-link navsize" onClick={closeDesktopMenus}>Home</Link>
+                        <Link href="/about" className="nav-link navsize" onClick={closeDesktopMenus}>About Us</Link>
 
                         {/* SERVICES DESKTOP DROPDOWN */}
                         <div
@@ -68,9 +83,8 @@ export default function Navbar() {
                                 }, 120);
                             }}
                         >
-                            <Link href="/services" className="nav-link navsize cursor-pointer">
-                                <span className="nav-link navsize cursor-pointer">Services</span>
-                            </Link>
+                            <span className="nav-link navsize cursor-pointer">Services</span>
+
                             <AnimatePresence>
                                 {servicesOpen && (
                                     <motion.div
@@ -81,6 +95,7 @@ export default function Navbar() {
                                         className="absolute left-0 top-8 mt-4 w-56 
                                         bg-white/95 backdrop-blur-xl rounded-xl p-2 border navdrop shadow-lg"
                                     >
+                                        {/* Finance & Accounts Submenu */}
                                         {/* Finance & Accounts Submenu */}
                                         <div
                                             className="relative cursor-pointer"
@@ -94,13 +109,11 @@ export default function Navbar() {
                                                 }, 120);
                                             }}
                                         >
-                                            <Link href="/services/finance">
-                                                <div className="dropdown-item flex justify-between">
-                                                    Finance & Accounts
-                                                    <ChevronRight size={16} />
+                                            <Link href="/services/finance" onClick={closeDesktopMenus}>
+                                                <div className="dropdown-item flex justify-between items-center px-3 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200">
+                                                    <span>Finance & Accounts <ChevronRight size={16} className="inline" /></span>
                                                 </div>
                                             </Link>
-
 
                                             <AnimatePresence>
                                                 {financeOpen && (
@@ -109,34 +122,46 @@ export default function Navbar() {
                                                         animate={{ opacity: 1, x: 0 }}
                                                         exit={{ opacity: 0, x: -8 }}
                                                         transition={{ duration: 0.18 }}
-                                                        className="absolute top-0 left-full ml-2 
-                                                        w-56 bg-white/95 backdrop-blur-xl rounded-xl p-2 border navdrop shadow-lg"
+                                                        className="absolute top-0 left-full ml-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl p-2 border navdrop shadow-lg"
                                                     >
-                                                        <Link href="/services/finance/usa" className="dropdown-item">USA</Link>
-                                                        <Link href="/services/finance/canada" className="dropdown-item">Canada</Link>
-                                                        <Link href="/services/finance/uk" className="dropdown-item">UK</Link>
-                                                        <Link href="/services/finance/australia" className="dropdown-item">Australia</Link>
-                                                        <Link href="/services/finance/newzealand" className="dropdown-item">New Zealand</Link>
-                                                        <Link href="/services/finance/india" className="dropdown-item">India & Others</Link>
+                                                        {/* Sub-items */}
+                                                        {["USA", "Canada", "UK", "Australia", "New Zealand", "India & Others"].map((item) => (
+                                                            <Link key={item} href={`/services/finance/${item.toLowerCase().replace(" ", "")}`} onClick={closeDesktopMenus}>
+                                                                <div className="dropdown-item px-3 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
+                                                                    {item}
+                                                                </div>
+                                                            </Link>
+                                                        ))}
                                                     </motion.div>
                                                 )}
                                             </AnimatePresence>
                                         </div>
 
-                                        <Link href="/services/itoutsourcing" className="dropdown-item">IT Outsourcing</Link>
-                                        <Link href="/services/digitalmarketing" className="dropdown-item">Digital Marketing</Link>
+                                        {/* Other services */}
+                                        <Link href="/services/itoutsourcing" onClick={closeDesktopMenus}>
+                                            <div className="dropdown-item px-3 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
+                                                IT Outsourcing
+                                            </div>
+                                        </Link>
+                                        <Link href="/services/digitalmarketing" onClick={closeDesktopMenus}>
+                                            <div className="dropdown-item px-3 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
+                                                Digital Marketing
+                                            </div>
+                                        </Link>
+
                                     </motion.div>
                                 )}
                             </AnimatePresence>
                         </div>
 
-                        <Link href="/contact" className="nav-link navsize">Contact Us</Link>
+                        <Link href="/contact" className="nav-link navsize" onClick={closeDesktopMenus}>Contact Us</Link>
                     </div>
 
                     {/* CTA */}
                     <Link
                         href="/contact"
                         className="hidden md:inline-flex bg-blue-600 text-white px-6 py-3 rounded-full font-semibold hover:bg-blue-700 shadow-md"
+                        onClick={closeDesktopMenus}
                     >
                         Get Started
                     </Link>
@@ -159,14 +184,14 @@ export default function Navbar() {
                             exit={{ opacity: 0, y: -6 }}
                             className="md:hidden px-6 pb-4 flex flex-col text-[#0B1B2E] gap-3 mt-2"
                         >
-                            <Link href="/" onClick={() => setIsOpen(false)} className="mobile-link">Home</Link>
-                            <Link href="/about" onClick={() => setIsOpen(false)} className="mobile-link">About Us</Link>
+                            <Link href="/" onClick={closeAllMenus} className="mobile-link">Home</Link>
+                            <Link href="/about" onClick={closeAllMenus} className="mobile-link">About Us</Link>
 
                             {/* MOBILE SERVICES ACCORDION */}
                             <div className="flex flex-col">
                                 <button
                                     onClick={() => setServicesMobile(!servicesMobile)}
-                                    className="mobile-link flex justify-between"
+                                    className="mobile-link flex justify-between items-center"
                                 >
                                     Services
                                     <ChevronRight className={`transition ${servicesMobile ? "rotate-90" : ""}`} />
@@ -184,7 +209,7 @@ export default function Navbar() {
                                             {/* FINANCE ACCORDION */}
                                             <button
                                                 onClick={() => setFinanceMobile(!financeMobile)}
-                                                className="mobile-sublink flex justify-between"
+                                                className="mobile-sublink flex justify-between items-center"
                                             >
                                                 Finance & Accounts
                                                 <ChevronRight className={`transition ${financeMobile ? "rotate-90" : ""}`} />
@@ -199,20 +224,20 @@ export default function Navbar() {
                                                         exit={{ height: 0, opacity: 0 }}
                                                         className="pl-4 flex flex-col gap-2"
                                                     >
-                                                        <Link href="/services/finance/usa" onClick={() => setIsOpen(false)} className="mobile-sublink">USA</Link>
-                                                        <Link href="/services/finance/canada" onClick={() => setIsOpen(false)} className="mobile-sublink">Canada</Link>
-                                                        <Link href="/services/finance/uk" onClick={() => setIsOpen(false)} className="mobile-sublink">UK</Link>
-                                                        <Link href="/services/finance/australia" onClick={() => setIsOpen(false)} className="mobile-sublink">Australia</Link>
-                                                        <Link href="/services/finance/newzealand" onClick={() => setIsOpen(false)} className="mobile-sublink">New Zealand</Link>
-                                                        <Link href="/services/finance/india" onClick={() => setIsOpen(false)} className="mobile-sublink">India & Others</Link>
+                                                        <Link href="/services/finance/usa" onClick={closeAllMenus} className="mobile-sublink">USA</Link>
+                                                        <Link href="/services/finance/canada" onClick={closeAllMenus} className="mobile-sublink">Canada</Link>
+                                                        <Link href="/services/finance/uk" onClick={closeAllMenus} className="mobile-sublink">UK</Link>
+                                                        <Link href="/services/finance/australia" onClick={closeAllMenus} className="mobile-sublink">Australia</Link>
+                                                        <Link href="/services/finance/newzealand" onClick={closeAllMenus} className="mobile-sublink">New Zealand</Link>
+                                                        <Link href="/services/finance/india" onClick={closeAllMenus} className="mobile-sublink">India & Others</Link>
                                                     </motion.div>
                                                 )}
                                             </AnimatePresence>
 
-                                            <Link href="/services/itoutsourcing" onClick={() => setIsOpen(false)} className="mobile-sublink">
+                                            <Link href="/services/itoutsourcing" onClick={closeAllMenus} className="mobile-sublink">
                                                 IT Outsourcing
                                             </Link>
-                                            <Link href="/services/digitalmarketing" onClick={() => setIsOpen(false)} className="mobile-sublink">
+                                            <Link href="/services/digitalmarketing" onClick={closeAllMenus} className="mobile-sublink">
                                                 Digital Marketing
                                             </Link>
                                         </motion.div>
@@ -220,11 +245,11 @@ export default function Navbar() {
                                 </AnimatePresence>
                             </div>
 
-                            <Link href="/contact" onClick={() => setIsOpen(false)} className="mobile-link">Contact Us</Link>
+                            <Link href="/contact" onClick={closeAllMenus} className="mobile-link">Contact Us</Link>
 
                             <Link
                                 href="/contact"
-                                onClick={() => setIsOpen(false)}
+                                onClick={closeAllMenus}
                                 className="text-center bg-blue-600 text-white px-5 py-3 rounded-full mt-3"
                             >
                                 Get Started

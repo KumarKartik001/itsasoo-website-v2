@@ -4,13 +4,6 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
-/**
- * USAFinancePage
- * - Mirrors Australia page layout & animations
- * - Uses USA colors (light/dark blocks) as requested
- * - DOES NOT change any image paths
- */
-
 // typed cubic-bezier (satisfies framer-motion TS typing)
 const easeBezier = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
@@ -80,15 +73,14 @@ export default function USAFinancePage() {
                         <h3 className="text-3xl font-extrabold text-[#3A2F27] mb-4">Bookkeeping & Finalization of Accounts</h3>
 
                         <p className="text-[#4A3F35] leading-relaxed">
-                            Our bookkeeping services are tailored to meet your specific CPA firm needs — accuracy, reconciliations, and clean books for tax-ready submissions.
+                            We deliver accurate bookkeeping services in the USA, ensuring your accounts are finalized and ready for audits or growth opportunities.
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Data entry for bank, credit card & loan statements",
-                                "General ledger reviews & adjustments",
-                                "Year-end adjustments for depreciation, loans, payroll, etc.",
-                                "Finalization of books for business tax returns",
+                                "Trusted support for small businesses",
+                                "Bookkeeping tailored for US compliance",
+                                "Fast account finalization for tax readiness",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[#3E2F26] text-lg font-medium">
                                     <CheckCircle className="text-orange-500 w-6 h-6 mt-1" />
@@ -107,15 +99,14 @@ export default function USAFinancePage() {
                         <h3 className="text-3xl font-extrabold text-[#3A2F27] mb-4">Financial Reporting</h3>
 
                         <p className="text-[#4A3F35] leading-relaxed">
-                            Accurate monthly, quarterly and annual financial statements with end-to-end compliance and management-ready reports.
+                            Our US financial reporting team helps you make smarter decisions with clear, timely financial statements that meet regulatory standards.
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Income & expenditure statements",
-                                "Balance sheet preparation",
-                                "Cash flow statements",
-                                "Management reporting",
+                                "Monthly and annual reporting",
+                                "Data-driven insights for better planning",
+                                "Reports aligned to legal norms",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[#3E2F26] text-lg font-medium">
                                     <CheckCircle className="text-orange-500 w-6 h-6 mt-1" />
@@ -152,14 +143,14 @@ export default function USAFinancePage() {
                         <h3 className="text-3xl font-extrabold text-[#3A2F27] mb-4">Tax Return Preparation</h3>
 
                         <p className="text-[#4A3F35] leading-relaxed">
-                            Tax filing for individuals and corporations handled with expert accuracy and strict compliance to US federal and state regulations.
+                            Simplify federal and state tax return preparation with expert help, maximizing your deductions and ensuring fast, compliant IRS filings.
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Individual Return – Form 1040",
-                                "Corporate Returns – 1120, 1120S",
-                                "Partnership Return – Form 1065",
+                                "Secure tax preparation",
+                                "Federal and state filings handled",
+                                "Dedicated IRS compliance",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[#3E2F26] text-lg font-medium">
                                     <CheckCircle className="text-orange-500 w-6 h-6 mt-1" />
@@ -178,14 +169,15 @@ export default function USAFinancePage() {
                         <h3 className="text-3xl font-extrabold text-[#3A2F27] mb-4">Payroll Processing</h3>
 
                         <p className="text-[#4A3F35] leading-relaxed">
-                            End-to-end payroll management including federal & state tax calculations, forms, and compliance checks.
+                            Seamless USA payroll processing takes care of multi-state rules, employee payments, and direct deposits for stress-free payroll management.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Weekly / Monthly payroll processing",
-                                "Federal & state tax calculations",
-                                "W-2, W-3, 1099-MISC preparation",
+                                "Modern payroll solutions",
+                                "Multi-state tax coverage",
+                                "Automated salary processing",
                                 "Quarterly & Annual payroll returns",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[#3E2F26] text-lg font-medium">
@@ -223,13 +215,15 @@ export default function USAFinancePage() {
                         <h3 className="text-3xl font-extrabold text-[#3A2F27] mb-4">Sales Tax Filing</h3>
 
                         <p className="text-[#4A3F35] leading-relaxed">
-                            We compute and file accurate sales tax returns across states, handling registrations, filing and reconciliations.
+                            Get expert support for sales tax filing with a solution built for US businesses, including e-commerce and multi-state operations.
+
                         </p>
 
                         <ul className="mt-6 space-y-3">
                             {[
-                                "Computation of sales tax",
-                                "Online filing of sales tax returns",
+                                "Multi-state sales tax expertise",
+                                "Support for online retailers",
+                                "Reliable, timely filings",
                             ].map((p) => (
                                 <li key={p} className="flex gap-3 text-[#3E2F26] text-lg font-medium">
                                     <CheckCircle className="text-orange-500 w-6 h-6 mt-1" />
