@@ -63,7 +63,7 @@ export default function ProcessTimeline() {
                 <div className="relative mt-20">
 
                     {/* Middle Line */}
-                    <div className="absolute left-1/2 top-0 h-full w-[3px] bg-gradient-to-b from-[#48C8FF] to-transparent opacity-60"></div>
+                    <div className="absolute left-1/2 top-0 h-full w-[3px] bg-linear-to-b from-[#48C8FF] to-transparent opacity-60"></div>
 
                     <div className="space-y-32">
                         {steps.map((step, index) => {
@@ -75,7 +75,7 @@ export default function ProcessTimeline() {
                                     className={`
                                         relative flex flex-col md:flex-row items-center gap-10 
                                         opacity-0 animate-slide-up 
-                                        [will-change:transform,opacity]
+                                        will-change-[transform,opacity]
                                         ${isLeft ? "md:flex-row-reverse" : ""}
                                     `}
                                     style={{ animationDelay: `${index * 0.15}s` }}

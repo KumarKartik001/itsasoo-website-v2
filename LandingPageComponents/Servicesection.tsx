@@ -40,7 +40,7 @@ export default function ServicesSection() {
         <section className="relative w-full py-28 overflow-hidden bg-[#061529]">
 
             {/* Soft Gradient Tint */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0A1E3B]/80 to-[#061529] pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-b from-[#0A1E3B]/80 to-[#061529] pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-6 text-center">
 
@@ -98,7 +98,7 @@ export default function ServicesSection() {
                                     />
 
                                     {/* Light glass overlay (less white to show image more) */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-[#373d442a]" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-[#000000] to-[#373d442a]" />
 
                                     {/* Content */}
                                     <div className="relative z-20 p-8 text-left">
