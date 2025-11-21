@@ -37,12 +37,10 @@ const services = [
 
 export default function ServicesSection() {
     return (
-        <section className="relative w-full py-28 overflow-hidden bg-[#03132A]">
+        <section className="relative w-full py-28 overflow-hidden bg-[#061529]">
 
-            {/* ===== TECH GRID BACKGROUND ===== */}
-            <div className="absolute inset-0 opacity-[0.25] pointer-events-none">
-                <div className="w-full h-full bg-[url('/grid.svg')] bg-repeat opacity-[0.15]"></div>
-            </div>
+            {/* Soft Gradient Tint */}
+            <div className="absolute inset-0 bg-gradient-to-b from-[#0A1E3B]/80 to-[#061529] pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-6 text-center">
 
@@ -52,9 +50,9 @@ export default function ServicesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="text-4xl font-bold text-white"
+                    className="text-5xl md:text-6xl font-bold text-white"
                 >
-                    Our <span className="text-blue-400">Services</span>
+                    Our <span className="text-blue-300">Services</span>
                 </motion.h2>
 
                 <motion.p
@@ -62,14 +60,13 @@ export default function ServicesSection() {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.7 }}
-                    className="mt-3 text-gray-300 max-w-2xl mx-auto"
+                    className="mt-4 text-gray-300 max-w-2xl mx-auto text-lg"
                 >
-                    Outsourcing solutions engineered for scalability, accuracy and enterprise-grade performance.
+                    Enterprise outsourcing solutions built to drive accuracy, stability and scalable growth.
                 </motion.p>
 
-                {/* ===== SERVICES GRID ===== */}
-                <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
-
+                {/* Services Cards */}
+                <div className="mt-20 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12">
                     {services.map((service, index) => {
                         const Icon = service.icon;
 
@@ -80,52 +77,45 @@ export default function ServicesSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{
-                                        duration: 0.6,
+                                        duration: 0.7,
                                         delay: index * 0.15,
                                     }}
                                     className="
-                                        group relative rounded-2xl overflow-hidden cursor-pointer
-                                        h-[360px]          /* Equal card height */
-                                        bg-black
+                                        group relative overflow-hidden cursor-pointer
+                                        rounded-3xl bg-[#0C2037]/80
+                                        border border-white/10
+                                        shadow-[0_6px_22px_rgba(0,0,0,0.35)]
+                                        hover:shadow-[0_14px_28px_rgba(0,0,0,0.45)]
+                                        transition-all
+                                        h-[420px] flex flex-col justify-end
                                     "
                                 >
-                                    {/* Background Image */}
+
+                                    {/* Background Image (now more visible) */}
                                     <div
-                                        className="absolute inset-0 bg-cover bg-center"
+                                        className="absolute inset-0 bg-cover bg-center opacity-75 group-hover:opacity-90 transition-all duration-500"
                                         style={{ backgroundImage: `url(${service.bg})` }}
                                     />
 
-                                    {/* Dark Overlay Tint */}
-                                    <div className="absolute inset-0 bg-black/60 group-hover:bg-black/50 transition-all"></div>
+                                    {/* Light glass overlay (less white to show image more) */}
+                                    <div className="absolute inset-0 bg-gradient-to-t from-[#000000] to-[#373d442a]" />
 
-                                    {/* Shine Sweep */}
-                                    <motion.div
-                                        className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent opacity-0 group-hover:opacity-100"
-                                        initial={{ x: "-100%" }}
-                                        animate={{ x: "100%" }}
-                                        transition={{
-                                            repeat: Infinity,
-                                            duration: 2,
-                                            ease: "linear",
-                                        }}
-                                    ></motion.div>
+                                    {/* Content */}
+                                    <div className="relative z-20 p-8 text-left">
 
-                                    {/* CONTENT */}
-                                    <div className="relative z-[5] h-full p-8 flex flex-col justify-end text-left">
-
-                                        {/* Service Icon */}
+                                        {/* Icon */}
                                         <div className="
-                                            w-14 h-14 flex items-center justify-center 
-                                            rounded-xl bg-white/20 border border-white/20
+                                            w-14 h-14 flex items-center justify-center
+                                            rounded-2xl bg-white/15 backdrop-blur border border-white/20
                                         ">
-                                            <Icon className="w-8 h-8 text-white" />
+                                            <Icon className="w-7 h-7 text-white" />
                                         </div>
 
-                                        <h3 className="mt-4 text-2xl font-semibold text-white">
+                                        <h3 className="mt-5 text-2xl font-semibold text-white">
                                             {service.title}
                                         </h3>
 
-                                        <p className="mt-2 text-gray-200 text-sm leading-relaxed">
+                                        <p className="mt-2 text-gray-300 text-sm leading-relaxed">
                                             {service.description}
                                         </p>
 

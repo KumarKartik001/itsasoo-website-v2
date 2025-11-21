@@ -4,6 +4,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { Globe2, CheckCircle2, BarChart2, UserCheck, Cpu, TrendingUp, Mail, Pencil, Video, Users, Target, Rocket, ChartBar, Clock } from "lucide-react";
 import Link from "next/link";
+import GlobalPresenceInfoSection from "@/LandingPageComponents/GlobalPresenceMap";
 
 // 1️⃣ Hero Section
 const HeroSection: React.FC = () => (
@@ -34,20 +35,24 @@ const HeroSection: React.FC = () => (
                 From performance marketing to SEO, branding, and social media — we build digital engines that scale globally.
             </p>
             <div className="mt-10 flex flex-col sm:flex-row gap-4 justify-center">
-                <motion.button
-                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
-                >
-                    Get Started
-                </motion.button>
-                <motion.button
-                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
-                    whileTap={{ scale: 0.95 }}
-                    className="border border-[#4FC3F7] text-[#4FC3F7] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg hover:bg-[#4FC3F7] hover:text-[#031A2F] focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
-                >
-                    Talk to Our Experts
-                </motion.button>
+                <Link href="#ServicesSection" passHref>
+                    <motion.button
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
+                    >
+                        Get Started
+                    </motion.button>
+                </Link>
+                <Link href="/contact" passHref>
+                    <motion.button
+                        whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
+                        whileTap={{ scale: 0.95 }}
+                        className="border border-[#4FC3F7] text-[#4FC3F7] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg hover:bg-[#4FC3F7] hover:text-[#031A2F] focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
+                    >
+                        Talk to Our Experts
+                    </motion.button>
+                </Link>
             </div>
         </motion.div>
     </section>
@@ -109,7 +114,7 @@ const services: Service[] = [
 ];
 
 const ServicesSection: React.FC = () => (
-    <section className="py-20 bg-[#e3ecfc] w-full mx-auto px-10">
+    <section className="py-20 bg-[#e3ecfc] w-full mx-auto px-10" id="ServicesSection">
         <h2 className="text-4xl font-bold text-[#032542] mb-16 text-center">Services We Offer</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
             {services.map(({ icon, title, description }) => (
@@ -238,11 +243,11 @@ const industries = [
 ];
 
 const IndustriesSection: React.FC = () => (
-    <section className="py-24 bg-white max-w-7xl mx-auto px-6">
-        <h2 className="text-4xl font-bold text-[#032542] mb-12 text-center">Industries We Serve</h2>
+    <section className="py-24 bg-[#0c1631] w-full mx-auto px-6 corner-rounded">
+        <h2 className="text-4xl font-bold text-[#aecde9] mb-12 text-center">Industries We Serve</h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-10">
             {industries.map(({ icon, title }) => (
-                <div key={title} className="p-6 rounded-xl bg-[#F7FAFC] hover:shadow-lg transition-shadow cursor-default flex flex-col items-center">
+                <div key={title} className="p-6 rounded-xl bg-[#c5d9e7] hover:shadow-lg transition-shadow cursor-default flex flex-col items-center">
                     <img src={icon} alt={title} className="h-16 mb-4" />
                     <h3 className="text-xl font-semibold text-[#000000]">{title}</h3>
                 </div>
@@ -274,7 +279,7 @@ const caseStudies = [
 ];
 
 const CaseStudiesSection: React.FC = () => (
-    <section className="py-24 bg-[#E9F3FF] max-w-7xl mx-auto px-6 text-[#032542]">
+    <section className="py-24 bg-[#E9F3FF] w-full mx-auto px-6 text-[#032542]">
         <h2 className="text-4xl font-bold mb-14 text-center">Case Studies / Success Stories</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
             {caseStudies.map(({ industry, problem, solution, results }) => (
@@ -317,7 +322,7 @@ const testimonials = [
 ];
 
 const TestimonialsSection: React.FC = () => (
-    <section className="py-24 bg-white max-w-7xl mx-auto px-6 text-[#032542] text-center">
+    <section className="py-24 bg-white w-full mx-auto px-6 text-[#032542] text-center">
         <h2 className="text-4xl font-bold mb-12">What Our Clients Say</h2>
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-12">
             {testimonials.map(({ stars, quote, client, region }, i) => (
@@ -341,15 +346,15 @@ const TestimonialsSection: React.FC = () => (
 );
 
 // 9️⃣ Global Presence Map (Placeholder)
-const GlobalPresenceMap: React.FC = () => (
-    <section className="py-24 bg-[#F0F7FB] text-[#032542] text-center w-full mx-auto px-6 rounded-xl shadow-inner">
-        <h2 className="text-4xl font-bold mb-8">Our Global Presence</h2>
-        <img src="/worldmap.png" alt="Global Presence Map ITSASOO" className="mx-auto max-w-full rounded-lg shadow-md" />
-        <p className="mt-6 max-w-xl mx-auto text-lg">
-            We serve clients across India (HQ), USA, Canada, UK, Australia, New Zealand, and more.
-        </p>
-    </section>
-);
+// const GlobalPresenceMap: React.FC = () => (
+//     <section className="py-24 bg-[#F0F7FB] text-[#032542] text-center w-full mx-auto px-6 rounded-xl shadow-inner">
+//         <h2 className="text-4xl font-bold mb-8">Our Global Presence</h2>
+//         <img src="/worldmap.png" alt="Global Presence Map ITSASOO" className="mx-auto max-w-full rounded-lg shadow-md" />
+//         <p className="mt-6 max-w-xl mx-auto text-lg">
+//             We serve clients across India (HQ), USA, Canada, UK, Australia, New Zealand, and more.
+//         </p>
+//     </section>
+// );
 
 // 🔟 Call to Action Strip
 const CTAStrip: React.FC = () => (
@@ -361,13 +366,15 @@ const CTAStrip: React.FC = () => (
             <p className="mb-10 text-lg max-w-lg mx-auto">
                 Speak to our experts and unlock data-driven growth today.
             </p>
-            <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 25px #4FC3F7" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#031A2F] rounded-full px-16 py-4 font-semibold shadow-lg transition focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/70"
-            >
-                Get Started
-            </motion.button>
+            <Link href="/contact" passHref>
+                <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 25px #4FC3F7" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white text-[#031A2F] rounded-full px-16 py-4 font-semibold shadow-lg transition focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/70"
+                >
+                    Get Started
+                </motion.button>
+            </Link>
         </div>
         <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-10 pointer-events-none" />
     </section>
@@ -396,24 +403,20 @@ const NewsletterSection: React.FC = () => (
     </section>
 );
 
-// 12️⃣ Footer (can be imported or implemented as required)
-
 
 export default function DigitalMarketingServicesPage() {
     return (
-        <main className="bg-white">
+        <main className="">
             <HeroSection />
             <ServicesSection />
             <WhyChooseUsSection />
-            {/* <ProcessTimelineSection /> */}
             <MetricsSection />
             <IndustriesSection />
             <CaseStudiesSection />
             <TestimonialsSection />
-            <GlobalPresenceMap />
+            {/* <GlobalPresenceMap /> */}
+            <GlobalPresenceInfoSection />
             <CTAStrip />
-            {/* <NewsletterSection /> */}
-            {/* Footer here */}
         </main>
     );
 }

@@ -1,69 +1,84 @@
 "use client";
+
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
+/* SAME VARIANTS SYSTEM FOR ALL COUNTRY PAGES */
+
+const easeBezier = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    animate: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: easeBezier },
+    },
+};
+
+const fadeSide = (xValue: number) => ({
+    initial: { opacity: 0, x: xValue },
+    animate: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.6, ease: easeBezier },
+    },
+});
+
+
 export default function UkFinancePage() {
     return (
-        <section className="bg-[#bfe2c2]"> {/* Light sky pastel */}
+        <section className="bg-[#bfe2c2]">
 
-            {/* ========================================================= */}
-            {/* HERO SECTION                                                */}
-            {/* ========================================================= */}
-            <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center text-white overflow-hidden">
+            {/* HERO SECTION */}
+            <section className="relative w-full min-h-[60vh] md:min-h-[70vh] flex items-center justify-center text-white overflow-hidden">
 
-                {/* Background Image */}
+                {/* Background */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat scale-105"
                     style={{ backgroundImage: "url('/finance/countries/uk/uk.jpg')" }}
                 ></div>
 
-                {/* Gradient Overlay */}
+                {/* Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/40 to-black/70"></div>
 
-                {/* Content */}
-                <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    className="relative text-center max-w-3xl mx-auto text-white px-6"
-                >
+                {/* Text */}
+                <motion.div {...fadeUp} className="relative text-center max-w-3xl mx-auto text-white px-6">
                     <h2 className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-xl">
-                        United Kingdom
-                        <span className="text-[#4a9726]"> Finance Outsourcing Services</span>
+                        United Kingdom <span className="text-[#4a9726]"> Finance Outsourcing Services</span>
                     </h2>
 
                     <p className="mt-5 text-lg leading-relaxed text-gray-200 drop-shadow-md">
                         Professional accounting, taxation, payroll and bookkeeping outsourcing —
-                        trusted by United Kingdom's accounting firms for accuracy, compliance, and efficiency.
+                        trusted by United Kingdom’s accounting firms for accuracy, compliance, and efficiency.
                     </p>
                 </motion.div>
             </section>
 
 
 
-            {/* ========================================================= */}
-            {/* MAIN CONTENT                                               */}
-            {/* ========================================================= */}
+
+            {/* MAIN CONTENT */}
             <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
 
-
-
-                {/* ========================================================= */}
-                {/* 1 — BOOKKEEPING (IMAGE | TEXT) */}
-                {/* ========================================================= */}
-                <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
+                {/* BLOCK 1 — BOOKKEEPING */}
+                <section className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/finance/countries/uk/uk_bookkeeping.jpg" className="rounded-2xl shadow-xl object-cover w-full h-80" />
+                    <motion.div {...fadeSide(-30)}>
+                        <img
+                            src="/finance/countries/uk/uk_bookkeeping.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-80"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <h3 className="text-3xl font-extrabold text-[black] mb-4">
+                    <motion.div {...fadeSide(30)}>
+                        <h3 className="text-3xl font-extrabold text-black mb-4">
                             Bookkeeping & Financial Finalization
                         </h3>
-                        <p className="text-[black] leading-relaxed">
+
+                        <p className="text-black leading-relaxed">
                             Customized bookkeeping solutions ensuring accuracy, compliance and seamless monthly & annual reporting.
                         </p>
 
@@ -74,28 +89,28 @@ export default function UkFinancePage() {
                                 "Year-end adjustments & accruals",
                                 "Finalization support for T2 corporate filings",
                             ].map((p) => (
-                                <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
+                                <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
                                     <span className="bg-white/40 px-3 py-1 rounded-md shadow-sm">{p}</span>
                                 </li>
                             ))}
                         </ul>
                     </motion.div>
-                </div>
+                </section>
 
 
 
-                {/* ========================================================= */}
-                {/* 2 — FINANCIAL REPORTING (TEXT | IMAGE) */}
-                {/* ========================================================= */}
-                <div className="grid md:grid-cols-2 gap-14 items-center bg-[#a6ddaa] p-10 rounded-3xl shadow-lg">
+
+                {/* BLOCK 2 — FINANCIAL REPORTING */}
+                <section className="grid md:grid-cols-2 gap-14 items-center bg-[#a6ddaa] p-10 rounded-3xl shadow-lg">
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <h3 className="text-3xl font-extrabold text-[black] mb-4">
+                    <motion.div {...fadeSide(-30)}>
+                        <h3 className="text-3xl font-extrabold text-black mb-4">
                             Financial Reporting
                         </h3>
-                        <p className="text-[black] leading-relaxed">
+
+                        <p className="text-black leading-relaxed">
                             Accurate and compliant financial statements for monthly, quarterly, and annual reporting.
                         </p>
 
@@ -106,7 +121,7 @@ export default function UkFinancePage() {
                                 "Cash flow statements",
                                 "Management & KPI reporting",
                             ].map((p) => (
-                                <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
+                                <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
                                     <span className="bg-white/40 px-3 py-1 rounded-md shadow-sm">{p}</span>
                                 </li>
@@ -115,29 +130,35 @@ export default function UkFinancePage() {
                     </motion.div>
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/financial-reporting.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(30)}>
+                        <img
+                            src="/finance/countries/uk/uk_financialreporting.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
-                </div>
+                </section>
 
 
 
-                {/* ========================================================= */}
-                {/* 3 — TAX RETURNS (IMAGE | TEXT) */}
-                {/* ========================================================= */}
-                <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
+
+                {/* BLOCK 3 — TAX RETURNS */}
+                <section className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/tax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(-30)}>
+                        <img
+                            src="/finance/countries/uk/uk_tax.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <h3 className="text-3xl font-extrabold text-[black] mb-4">
+                    <motion.div {...fadeSide(30)}>
+                        <h3 className="text-3xl font-extrabold text-black mb-4">
                             Tax Return Preparation
                         </h3>
-                        <p className="text-[black] leading-relaxed">
+
+                        <p className="text-black leading-relaxed">
                             Fast, accurate and compliant tax preparation for individuals and corporations.
                         </p>
 
@@ -147,29 +168,29 @@ export default function UkFinancePage() {
                                 "Corporate Return – T2",
                                 "GST/HST filing & reconciliation",
                             ].map((p) => (
-                                <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
+                                <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
                                     <span className="bg-white/40 px-3 py-1 rounded-md shadow-sm">{p}</span>
                                 </li>
                             ))}
                         </ul>
                     </motion.div>
-                </div>
+                </section>
 
 
 
-                {/* ========================================================= */}
-                {/* 4 — PAYROLL (TEXT | IMAGE) */}
-                {/* ========================================================= */}
-                <div className="grid md:grid-cols-2 gap-14 items-center bg-[#a6ddaa] p-10 rounded-3xl shadow-lg">
+
+                {/* BLOCK 4 — PAYROLL */}
+                <section className="grid md:grid-cols-2 gap-14 items-center bg-[#a6ddaa] p-10 rounded-3xl shadow-lg">
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <h3 className="text-3xl font-extrabold text-[black] mb-4">
+                    <motion.div {...fadeSide(-30)}>
+                        <h3 className="text-3xl font-extrabold text-black mb-4">
                             Payroll Processing
                         </h3>
-                        <p className="text-[black] leading-relaxed">
-                            Fully managed and compliant Canadian payroll services for small and large firms.
+
+                        <p className="text-black leading-relaxed">
+                            Fully managed and compliant UK payroll services for small and large firms.
                         </p>
 
                         <ul className="mt-6 space-y-3">
@@ -179,7 +200,7 @@ export default function UkFinancePage() {
                                 "T4, T4A preparation",
                                 "Payroll reconciliations",
                             ].map((p) => (
-                                <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
+                                <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
                                     <span className="bg-white/40 px-3 py-1 rounded-md shadow-sm">{p}</span>
                                 </li>
@@ -188,29 +209,35 @@ export default function UkFinancePage() {
                     </motion.div>
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/payroll.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(30)}>
+                        <img
+                            src="/finance/countries/uk/uk_payroll.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
-                </div>
+                </section>
 
 
 
-                {/* ========================================================= */}
-                {/* 5 — SALES TAX (IMAGE | TEXT) */}
-                {/* ========================================================= */}
-                <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
+
+                {/* BLOCK 5 — SALES TAX */}
+                <section className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/salestax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(-30)}>
+                        <img
+                            src="/finance/countries/uk/uk_taxfile.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <h3 className="text-3xl font-extrabold text-[black] mb-4">
+                    <motion.div {...fadeSide(30)}>
+                        <h3 className="text-3xl font-extrabold text-black mb-4">
                             Sales Tax Filing
                         </h3>
-                        <p className="text-[black] leading-relaxed">
+
+                        <p className="text-black leading-relaxed">
                             Hassle-free GST/HST calculations, compliance checks and timely filing.
                         </p>
 
@@ -219,16 +246,14 @@ export default function UkFinancePage() {
                                 "GST/HST computation",
                                 "Online sales tax filing",
                             ].map((p) => (
-                                <li key={p} className="flex gap-3 text-[black] text-lg font-medium">
+                                <li key={p} className="flex gap-3 text-black text-lg font-medium">
                                     <CheckCircle className="text-[#022e02] w-6 h-6 mt-1" />
                                     <span className="bg-white/40 px-3 py-1 rounded-md shadow-sm">{p}</span>
                                 </li>
                             ))}
                         </ul>
                     </motion.div>
-                </div>
-
-
+                </section>
 
             </div>
 

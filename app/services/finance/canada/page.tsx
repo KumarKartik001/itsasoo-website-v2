@@ -2,12 +2,31 @@
 import { motion } from "framer-motion";
 import { CheckCircle } from "lucide-react";
 
+const easeBezier = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
+const fadeUp = {
+    initial: { opacity: 0, y: 20 },
+    whileInView: {
+        opacity: 1,
+        y: 0,
+        transition: { duration: 0.6, ease: easeBezier },
+    },
+};
+
+const fadeSide = (x: number) => ({
+    initial: { opacity: 0, x },
+    whileInView: {
+        opacity: 1,
+        x: 0,
+        transition: { duration: 0.6, ease: easeBezier },
+    },
+});
+
 export default function CanadaFinancePage() {
     return (
-        <section className="bg-[#c2daf1]"> {/* Light sky pastel */}
-
+        <section className="bg-[#c2daf1]">
             {/* ========================================================= */}
-            {/* HERO SECTION                                                */}
+            {/* HERO SECTION */}
             {/* ========================================================= */}
             <section className="relative w-full h-[60vh] md:h-[70vh] flex items-center justify-center text-white overflow-hidden">
 
@@ -24,7 +43,7 @@ export default function CanadaFinancePage() {
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
+                    transition={{ duration: 0.8, ease: easeBezier }}
                     className="relative text-center max-w-3xl mx-auto text-white px-6"
                 >
                     <h2 className="text-4xl md:text-5xl font-extrabold leading-tight drop-shadow-xl">
@@ -39,14 +58,10 @@ export default function CanadaFinancePage() {
                 </motion.div>
             </section>
 
-
-
             {/* ========================================================= */}
-            {/* MAIN CONTENT                                               */}
+            {/* MAIN CONTENT */}
             {/* ========================================================= */}
             <div className="max-w-7xl mx-auto px-6 py-16 space-y-24">
-
-
 
                 {/* ========================================================= */}
                 {/* 1 — BOOKKEEPING (IMAGE | TEXT) */}
@@ -54,12 +69,15 @@ export default function CanadaFinancePage() {
                 <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/finance/countries/canada/canada_bookkeeping.jpg" className="rounded-2xl shadow-xl object-cover w-full h-80" />
+                    <motion.div {...fadeSide(-30)} viewport={{ once: true }}>
+                        <img
+                            src="/finance/countries/canada/canada_bookkeeping.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-80"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                    <motion.div {...fadeSide(30)} viewport={{ once: true }}>
                         <h3 className="text-3xl font-extrabold text-[black] mb-4">
                             Bookkeeping & Financial Finalization
                         </h3>
@@ -84,14 +102,13 @@ export default function CanadaFinancePage() {
                 </div>
 
 
-
                 {/* ========================================================= */}
                 {/* 2 — FINANCIAL REPORTING (TEXT | IMAGE) */}
                 {/* ========================================================= */}
                 <div className="grid md:grid-cols-2 gap-14 items-center bg-[#93b2d4] p-10 rounded-3xl shadow-lg">
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                    <motion.div {...fadeSide(-30)} viewport={{ once: true }}>
                         <h3 className="text-3xl font-extrabold text-[black] mb-4">
                             Financial Reporting
                         </h3>
@@ -115,11 +132,13 @@ export default function CanadaFinancePage() {
                     </motion.div>
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/financial-reporting.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(30)} viewport={{ once: true }}>
+                        <img
+                            src="/finance/countries/canada/canada_financialreport.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
                 </div>
-
 
 
                 {/* ========================================================= */}
@@ -128,12 +147,15 @@ export default function CanadaFinancePage() {
                 <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/finance/countries/canada/canada_tax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(-30)} viewport={{ once: true }}>
+                        <img
+                            src="/finance/countries/canada/canada_tax.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                    <motion.div {...fadeSide(30)} viewport={{ once: true }}>
                         <h3 className="text-3xl font-extrabold text-[black] mb-4">
                             Tax Return Preparation
                         </h3>
@@ -157,14 +179,13 @@ export default function CanadaFinancePage() {
                 </div>
 
 
-
                 {/* ========================================================= */}
                 {/* 4 — PAYROLL (TEXT | IMAGE) */}
                 {/* ========================================================= */}
                 <div className="grid md:grid-cols-2 gap-14 items-center bg-[#93b2d4] p-10 rounded-3xl shadow-lg">
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                    <motion.div {...fadeSide(-30)} viewport={{ once: true }}>
                         <h3 className="text-3xl font-extrabold text-[black] mb-4">
                             Payroll Processing
                         </h3>
@@ -188,11 +209,13 @@ export default function CanadaFinancePage() {
                     </motion.div>
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/payroll.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(30)} viewport={{ once: true }}>
+                        <img
+                            src="/finance/countries/canada/canada_payroll.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
                 </div>
-
 
 
                 {/* ========================================================= */}
@@ -201,12 +224,15 @@ export default function CanadaFinancePage() {
                 <div className="grid md:grid-cols-2 gap-14 items-center bg-[#E3EEF3] p-10 rounded-3xl shadow-lg">
 
                     {/* Image */}
-                    <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/salestax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                    <motion.div {...fadeSide(-30)} viewport={{ once: true }}>
+                        <img
+                            src="/finance/countries/canada/canada_taxfile.jpg"
+                            className="rounded-2xl shadow-xl object-cover w-full h-full"
+                        />
                     </motion.div>
 
                     {/* Text */}
-                    <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
+                    <motion.div {...fadeSide(30)} viewport={{ once: true }}>
                         <h3 className="text-3xl font-extrabold text-[black] mb-4">
                             Sales Tax Filing
                         </h3>
@@ -228,10 +254,7 @@ export default function CanadaFinancePage() {
                     </motion.div>
                 </div>
 
-
-
             </div>
-
         </section>
     );
 }

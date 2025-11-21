@@ -1,105 +1,149 @@
 "use client";
-import { motion } from "framer-motion";
+import Image from "next/image";
 
 const steps = [
     {
         title: "Discovery & Requirement Understanding",
         description:
-            "We analyze workflows, pain points, compliance needs, and operational expectations.",
-        img: "/placeholder-step-1.jpg",
+            "We analyze workflows, pain points, compliance needs, and operational expectations to establish clarity and alignment.",
+        img: "/process/process1.jpg",
     },
     {
         title: "Process Mapping",
         description:
-            "We design end-to-end process structures, SOPs, KPIs, responsibilities, and reporting.",
-        img: "/placeholder-step-2.jpg",
+            "Our experts define structured workflows, SOPs, KPIs, ownership layers, and reporting frameworks.",
+        img: "/process/process2.jpg",
     },
     {
         title: "Team Setup",
         description:
-            "We allocate dedicated specialists based on required skill sets and workload demands.",
-        img: "/placeholder-step-3.jpg",
+            "A dedicated team is formed with the right mix of specialists and tools based on your operational needs.",
+        img: "/process/process3.jpg",
     },
     {
         title: "Execution & Review",
         description:
-            "Operations begin with continuous review layers to ensure accuracy and consistency.",
-        img: "/placeholder-step-4.jpg",
+            "Operations begin with multi-layered reviews to ensure accuracy, consistency, and compliance.",
+        img: "/process/process4.jpg",
     },
     {
         title: "Delivery & Reporting",
         description:
-            "Final outputs are delivered with audit-ready documentation and dashboards.",
-        img: "/placeholder-step-5.jpg",
+            "Final outputs are delivered with audit-ready accuracy, standardized reporting, and performance dashboards.",
+        img: "/process/process5.jpg",
     },
     {
         title: "Ongoing Optimization",
         description:
-            "We continuously refine workflows to increase speed, reduce cost, and elevate quality.",
-        img: "/placeholder-step-6.jpg",
+            "Continuous enhancements to improve speed, reduce costs, strengthen controls, and scale operations.",
+        img: "/process/process6.jpg",
     },
 ];
 
-const cardVariants = {
-    hidden: { opacity: 0, scale: 0.95, y: 20 },
-    visible: (i) => ({
-        opacity: 1,
-        scale: 1,
-        y: 0,
-        transition: {
-            delay: i * 0.15,
-            type: "spring",
-            stiffness: 70,
-            damping: 15,
-        },
-    }),
-};
-
-const TimelineStacked = () => {
+export default function ProcessTimeline() {
     return (
-        <section className="bg-[#03132A] py-16">
-            <div className="max-w-4xl mx-auto px-4">
-                <h2 className="text-center text-4xl md:text-5xl font-bold mb-8">
-                    Our <span className="text-[#4FC3F7]">Process</span>
+        <section className="relative py-28 bg-[#051225] overflow-hidden">
+
+            {/* LIGHTWEIGHT Glow (NO BLUR) */}
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_70%_20%,rgba(56,147,255,0.15),transparent_60%)]" />
+            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_20%_80%,rgba(18,94,255,0.10),transparent_65%)]" />
+
+            <div className="max-w-6xl mx-auto px-6 relative z-10">
+
+                {/* Title */}
+                <h2 className="text-center text-5xl font-bold text-white opacity-0 animate-fade-in">
+                    Our <span className="text-[#48C8FF]">Process</span>
                 </h2>
-                <p className="text-center text-slate-300 mb-12 max-w-2xl mx-auto">
-                    A streamlined, transparent operational model designed for global
-                    scalability.
+
+                <p className="text-center text-slate-300 max-w-2xl mx-auto mt-4 opacity-0 animate-fade-in delay-200">
+                    A refined, transparent and globally trusted execution framework.
                 </p>
 
-                <div className="space-y-16">
-                    {steps.map((step, index) => (
-                        <motion.div
-                            key={index}
-                            className="flex flex-col md:flex-row items-center rounded-2xl shadow-lg p-8 bg-gradient-to-b from-[#052547] to-[#a8b3e4] pointer-events-none hover:shadow-2xl"
-                            custom={index}
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true, amount: 0.6 }}
-                            variants={cardVariants}
-                            whileHover={{ scale: 1.03, boxShadow: "0 0 25px #4FC3F7" }}
-                        >
-                            <div className="md:w-1/2 md:pr-10 text-white">
-                                <h3 className="text-[#4FC3F7] text-2xl font-semibold mb-4">
-                                    {step.title}
-                                </h3>
-                                <p className="text-[#D1E7F5] text-lg leading-relaxed">
-                                    {step.description}
-                                </p>
-                            </div>
-                            <div className="md:w-1/2 mt-6 md:mt-0 overflow-hidden rounded-2xl shadow-inner">
-                                <img
-                                    src={step.img}
-                                    alt={step.title}
-                                    className="w-full h-60 object-cover object-center opacity-90"
-                                />
-                            </div>
-                        </motion.div>
-                    ))}
+                {/* Timeline */}
+                <div className="relative mt-20">
+
+                    {/* Middle Line */}
+                    <div className="absolute left-1/2 top-0 h-full w-[3px] bg-gradient-to-b from-[#48C8FF] to-transparent opacity-60"></div>
+
+                    <div className="space-y-32">
+                        {steps.map((step, index) => {
+                            const isLeft = index % 2 === 0;
+
+                            return (
+                                <div
+                                    key={index}
+                                    className={`
+                                        relative flex flex-col md:flex-row items-center gap-10 
+                                        opacity-0 animate-slide-up 
+                                        [will-change:transform,opacity]
+                                        ${isLeft ? "md:flex-row-reverse" : ""}
+                                    `}
+                                    style={{ animationDelay: `${index * 0.15}s` }}
+                                >
+
+                                    {/* Dot */}
+                                    <div className="
+                                        absolute left-1/2 -translate-x-1/2 
+                                        w-5 h-5 rounded-full 
+                                        bg-[#48C8FF]
+                                        border-4 border-[#051225]
+                                        shadow-[0_0_20px_rgba(72,200,255,0.6)]
+                                    "></div>
+
+                                    {/* Image */}
+                                    <div className="md:w-1/2 w-full rounded-3xl overflow-hidden shadow-xl bg-white/5 border border-white/10">
+                                        <Image
+                                            src={step.img}
+                                            alt={step.title}
+                                            width={800}
+                                            height={500}
+                                            loading="lazy"
+                                            className="w-full h-64 object-cover"
+                                        />
+                                    </div>
+
+                                    {/* Text */}
+                                    <div className="
+                                        md:w-1/2 w-full bg-white/10 
+                                        rounded-3xl p-8 
+                                        shadow-lg border border-white/10
+                                        text-white
+                                    ">
+                                        <h3 className="text-3xl font-semibold text-[#48C8FF]">
+                                            {step.title}
+                                        </h3>
+                                        <p className="mt-3 text-slate-200 leading-relaxed text-lg">
+                                            {step.description}
+                                        </p>
+                                    </div>
+
+                                </div>
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
+
+            {/* CSS Animations */}
+            <style>{`
+                @keyframes fade-in {
+                    0% { opacity: 0; transform: translateY(10px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+
+                .animate-fade-in {
+                    animation: fade-in 0.8s ease-out forwards;
+                }
+
+                @keyframes slide-up {
+                    0% { opacity: 0; transform: translateY(40px); }
+                    100% { opacity: 1; transform: translateY(0); }
+                }
+
+                .animate-slide-up {
+                    animation: slide-up 0.7s ease-out forwards;
+                }
+            `}</style>
         </section>
     );
-};
-
-export default TimelineStacked;
+}

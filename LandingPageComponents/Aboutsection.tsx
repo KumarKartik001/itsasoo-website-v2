@@ -1,56 +1,68 @@
 "use client";
+
 import { motion } from "framer-motion";
 import Image from "next/image";
 
+const easeBezier = [0.16, 1, 0.3, 1] as [number, number, number, number];
+
 export default function AboutSection() {
     return (
-        <section className="relative w-full py-24 bg-[#F7FBFF]">
-            {/* Soft gradient background */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#bcdcff] to-transparent pointer-events-none" />
+        <section className="relative w-full py-28 bg-gradient-to-b from-[#F7F9FC] via-[#EEF3F9] to-[#F7FAFF] overflow-hidden">
 
-            <div className="max-w-7xl mx-auto px-6 lg:px-12 relative z-[2]">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+            {/* Soft enterprise background blobs */}
+            <div className="absolute -top-32 -left-20 w-[380px] h-[380px] bg-[#E1EAF4] rounded-full blur-[120px] opacity-60" />
+            <div className="absolute bottom-0 right-0 w-[420px] h-[420px] bg-[#DDE7F5] rounded-full blur-[140px] opacity-70" />
 
-                    {/* LEFT SIDE — TEXT CONTENT */}
+            <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-12">
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+
+                    {/* LEFT SIDE — Premium Text Block */}
                     <motion.div
-                        initial={{ opacity: 0, x: -40 }}
+                        initial={{ opacity: 0, x: -35 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="space-y-6"
+                        transition={{ duration: 0.7, ease: easeBezier }}
+                        className="space-y-8"
                     >
-                        <h2 className="text-4xl lg:text-5xl font-bold text-[#0B1B2E] leading-tight">
-                            Transforming Businesses with Intelligent
-                            <span className="bg-gradient-to-r from-[#053d7c] to-[#02536b] bg-clip-text text-transparent ml-1">
-                                IT & Accounting Solutions
+                        {/* Section Tag */}
+                        <div className="inline-flex px-4 py-1.5 rounded-full bg-white/60 backdrop-blur border border-[#D4DFEA] text-sm text-[#3E5167] shadow-sm">
+                            ABOUT ITSASOO
+                        </div>
+
+                        {/* Title */}
+                        <h2 className="text-4xl md:text-5xl font-bold text-[#0C1B2E] leading-tight tracking-tight">
+                            Modernizing Finance & Technology
+                            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-[#1D3557] to-[#335E89]">
+                                with Enterprise Precision
                             </span>
                         </h2>
 
-                        <p className="text-lg text-[#34445C] leading-relaxed max-w-xl">
-                            ITSASOO SOLUTIONS PRIVATE LIMITED empowers organizations across the globe
-                            with premium IT development, financial operations, digital marketing, and
-                            business outsourcing services. Our mission is to support companies with
-                            efficient, scalable, and technology-driven solutions that accelerate growth.
+                        {/* Description */}
+                        <p className="text-lg text-[#3A4B61] leading-relaxed max-w-xl">
+                            ITSASOO SOLUTIONS PRIVATE LIMITED helps organizations build reliable,
+                            compliant and scalable operations across finance, technology and digital
+                            functions. Our approach blends domain expertise, structured governance
+                            and modern engineering to deliver measurable outcomes.
                         </p>
 
-                        {/* Highlight Points */}
+                        {/* Glass Cards — Deloitte-Style */}
                         <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
                             {[
                                 {
-                                    title: "Certified Finance Experts",
-                                    desc: "Experienced teams handling A/R, A/P, bookkeeping & compliance",
+                                    title: "Finance Excellence",
+                                    desc: "Structured accounting, controls & compliant operations.",
                                 },
                                 {
-                                    title: "Modern IT & Digital Solutions",
-                                    desc: "Web, software, automation, and marketing under one roof",
+                                    title: "Technology-Driven Delivery",
+                                    desc: "Secure software, automation and digital transformation.",
                                 },
                                 {
-                                    title: "Global Delivery Model",
-                                    desc: "Trusted by clients in USA, UK, Canada, Australia, India",
+                                    title: "Process Governance",
+                                    desc: "Transparent workflows with predictable SLA outcomes.",
                                 },
                                 {
-                                    title: "Operational Excellence",
-                                    desc: "Reliable, transparent & measurable service delivery",
+                                    title: "Enterprise Scalability",
+                                    desc: "Systems designed to grow with organizational needs.",
                                 },
                             ].map((item, i) => (
                                 <motion.div
@@ -59,40 +71,49 @@ export default function AboutSection() {
                                     whileInView={{ opacity: 1, y: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: i * 0.15, duration: 0.6 }}
-                                    className="p-5 rounded-xl bg-white shadow-sm border border-[#E4ECF7]"
+                                    className="
+                    p-6 rounded-2xl bg-white/70 backdrop-blur-xl 
+                    border border-[#E7EDF5]
+                    shadow-[0_4px_20px_rgba(0,0,0,0.05)]
+                    hover:shadow-[0_8px_28px_rgba(0,0,0,0.08)]
+                    transition-all
+                    "
                                 >
-                                    <h3 className="font-semibold text-[#0B1B2E] text-lg">
-                                        {item.title}
-                                    </h3>
-                                    <p className="text-sm text-[#4F637D] mt-1">{item.desc}</p>
+                                    <h3 className="font-semibold text-[#0E1F33] text-lg">{item.title}</h3>
+                                    <p className="text-sm text-[#4F627A] mt-2 leading-relaxed">{item.desc}</p>
                                 </motion.div>
                             ))}
                         </div>
                     </motion.div>
 
-                    {/* RIGHT SIDE — IMAGE WITH GRADIENT BORDER */}
+                    {/* RIGHT SIDE — Premium Image Block */}
                     <motion.div
-                        initial={{ opacity: 0, x: 40 }}
+                        initial={{ opacity: 0, x: 35 }}
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
-                        transition={{ duration: 0.7, ease: "easeOut" }}
-                        className="relative w-full flex justify-center"
+                        transition={{ duration: 0.7, ease: easeBezier }}
+                        className="relative flex justify-center"
                     >
-                        <div className="relative w-[90%] max-w-lg">
-                            {/* Glow Border */}
-                            <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-[#0077FF] to-[#00C4FF] opacity-20 blur-xl"></div>
+                        {/* Soft halo glow */}
+                        <div className="absolute inset-0 w-[90%] h-[90%] rounded-3xl bg-[#C4D8EE] blur-[120px] opacity-40" />
 
-                            <div className="relative overflow-hidden rounded-3xl shadow-xl border border-[#DCE9F9]">
-                                <Image
-                                    src="/about-illustration.png" // Replace with your image
-                                    alt="ITSASOO About Us"
-                                    width={600}
-                                    height={500}
-                                    className="object-cover w-full h-full"
-                                />
-                            </div>
+                        {/* Glass-Frame Image */}
+                        <div className="
+                relative overflow-hidden rounded-3xl shadow-xl
+                bg-white/70 backdrop-blur-lg
+                border border-[#EBF3FA]
+                w-[88%] max-w-lg
+            ">
+                            <Image
+                                src="/about-illustration.png"
+                                alt="About ITSASOO"
+                                width={600}
+                                height={500}
+                                className="object-cover w-full h-full"
+                            />
                         </div>
                     </motion.div>
+
                 </div>
             </div>
         </section>

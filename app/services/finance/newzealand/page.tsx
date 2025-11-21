@@ -14,7 +14,7 @@ export default function newzealandFinancePage() {
                 {/* Background Image */}
                 <div
                     className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat scale-105"
-                    style={{ backgroundImage: "url('/finance/countries/newzealand/newzeland.jpg')" }}
+                    style={{ backgroundImage: "url('/finance/countries/newzealand/newzealand.jpg')" }}
                 ></div>
 
                 {/* Gradient Overlay */}
@@ -116,7 +116,7 @@ export default function newzealandFinancePage() {
 
                     {/* Image */}
                     <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/financial-reporting.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                        <img src="/finance/countries/newzealand/newzealand_financialreporting.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
                     </motion.div>
                 </div>
 
@@ -129,7 +129,7 @@ export default function newzealandFinancePage() {
 
                     {/* Image */}
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/tax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                        <img src="/finance/countries/newzealand/newzealand_tax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
                     </motion.div>
 
                     {/* Text */}
@@ -189,7 +189,7 @@ export default function newzealandFinancePage() {
 
                     {/* Image */}
                     <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/payroll.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                        <img src="/finance/countries/newzealand/newzealand_payroll.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
                     </motion.div>
                 </div>
 
@@ -202,7 +202,7 @@ export default function newzealandFinancePage() {
 
                     {/* Image */}
                     <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }}>
-                        <img src="/canada/salestax.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
+                        <img src="/finance/countries/newzealand/newzealand_taxfile.jpg" className="rounded-2xl shadow-xl object-cover w-full h-full" />
                     </motion.div>
 
                     {/* Text */}

@@ -1,5 +1,6 @@
 // File: PremiumCTASection.tsx
 "use client";
+import Link from "next/link";
 import React from "react";
 
 const PremiumCTASection: React.FC = () => {
@@ -20,18 +21,20 @@ const PremiumCTASection: React.FC = () => {
                 <h2 className="text-4xl md:text-6xl font-extrabold text-[#D1E7F5] drop-shadow-lg mb-8 leading-tight">
                     Ready to scale your operations with precision & compliance?
                 </h2>
-                <button
-                    type="button"
-                    className="inline-block bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-10 py-4 text-xl shadow-lg transition-transform duration-300 ease-in-out
+                <Link href="/contact">
+                    <button
+                        type="button"
+                        className="inline-block bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-10 py-4 text-xl shadow-lg transition-transform duration-300 ease-in-out
              hover:bg-[#61bcf7] hover:scale-105
              active:bg-[#369ed7] active:scale-95
              focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60"
-                >
-                    Get Started →
-                </button>
+                    >
+                        Get Started →
+                    </button>
+                </Link>
 
             </div>
-        </section>
+        </section >
     );
 };
 

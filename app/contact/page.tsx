@@ -1,413 +1,376 @@
 "use client";
-
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { MapPin, Mail, Phone, Clock, Globe2, CheckCircle, ShieldCheck, Users, BarChart2 } from "lucide-react";
 
-const fadeUp = {
-    initial: { opacity: 0, y: 20 },
-    animate: { opacity: 1, y: 0, transition: { duration: 0.8 } },
-};
+/*
+    Single-file production-ready Contact Page for Next.js App Router
+    - Tailwind CSS classes used
+    - Framer Motion for animations
+    - Theme: ITSASOO (Deep Navy #031A2F, Accent #4FC3F7)
+    Sections (Option B):
+    Hero (dark + image)
+    Contact Info (glass light)
+    Contact Form (deep navy + glass form)
+    FAQ (electric blue gradient subtle)
+    Map (light gradient)
+    Testimonials (dark glossy)
+    CTA (dual-tone gradient)
+    Footer (navy)
 
-export default function ContactUsPage() {
-    const [form, setForm] = useState({
-        fullName: "",
-        email: "",
-        phone: "",
-        company: "",
-        serviceType: "",
-        message: "",
-        consent: false,
-    });
+    NOTE: replace image URLs with your actual assets. I referenced /contact/contact_bg.jpg as hero background.
+*/
 
-    const serviceOptions = [
-        "Finance & Accounting",
-        "IT Services",
-        "Digital Marketing",
-        "Other",
-    ];
+const FadeUp = ({ children, delay = 0 }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.65, delay }}
+    >
+        {children}
+    </motion.div>
+);
+
+export default function ContactPage() {
+    const [form, setForm] = useState({ name: "", email: "", phone: "", subject: "", message: "" });
+    const [sending, setSending] = useState(false);
+    const [faqsOpen, setFaqsOpen] = useState({});
 
     const faqs = [
-        {
-            q: "How quickly does your team respond?",
-            a: "Our team responds typically within 1 business hour.",
-        },
-        {
-            q: "Do you offer customized pricing?",
-            a: "Yes, pricing is tailored based on your service needs and scale.",
-        },
-        {
-            q: "What industries do you support?",
-            a: "We serve Finance, IT, Digital marketing, Healthcare, Manufacturing, and more.",
-        },
-        {
-            q: "What files do you need to start?",
-            a: "We will request required documents during kickoff to ensure compliance.",
-        },
-        {
-            q: "Do you provide NDAs?",
-            a: "Absolutely, NDAs and confidentiality agreements are standard.",
-        },
-        {
-            q: "How do you ensure data security?",
-            a: "We use ISO-certified processes, SOC2 standards, and GDPR compliance.",
-        },
-        {
-            q: "What timezones do you support?",
-            a: "Our support operates 24×7 across all major global timezones.",
-        },
+        { q: "How soon will we respond?", a: "We typically respond within 24 hours (business days). For priority support choose Schedule a Call." },
+        { q: "Do you offer free consultations?", a: "Yes — we offer a complimentary discovery call to scope the project." },
+        { q: "What industries do you serve?", a: "Finance, healthcare, e-commerce, SaaS, logistics and enterprise integrations." },
+        { q: "How secure is my data?", a: "We follow industry-standard security (ISO, SOC2-ready). Data is encrypted in transit and at rest." },
     ];
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
-        const { name, value, type, checked } = e.target;
-        setForm((prev) => ({
-            ...prev,
-            [name]: type === "checkbox" ? checked : value,
-        }));
-    };
+    const testimonials = [
+        { quote: "ITSASOO transformed our product and helped scale to millions of users.", name: "Riya Sharma", company: "FinEdge", country: "India" },
+        { quote: "Exceptional engineering and communication. Highly recommended.", name: "David Miller", company: "HealthGrid", country: "USA" },
+        { quote: "Very professional, delivered ahead of schedule.", name: "Amelia Clarke", company: "ShopPro", country: "UK" },
+    ];
+
+    function handleChange(e: { target: { name: any; value: any; }; }) {
+        setForm({ ...form, [e.target.name]: e.target.value });
+    }
+
+    async function handleSubmit(e: { preventDefault: () => void; }) {
+        e.preventDefault();
+        setSending(true);
+        // Simulate sending — replace with actual API call
+        setTimeout(() => {
+            setSending(false);
+            alert("Thanks — we received your message. We'll be in touch within 24 hours.");
+            setForm({ name: "", email: "", phone: "", subject: "", message: "" });
+        }, 900);
+    }
 
     return (
-        <main className="bg-[#031A2F] text-white min-h-screen">
-            {/* 1️⃣ Hero Section */}
-            <section
-                className="relative h-screen flex flex-col items-center justify-center overflow-hidden bg-cover bg-center"
-                style={{ backgroundImage: "url('/contact/hero-bg.jpg')" }} // Placeholder image
-            >
-                <div className="absolute inset-0 bg-black/70" />
-                <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-20" />
-                <div className="absolute inset-0 bg-[url('/effects/particles.png')] opacity-10" />
-                <div className="absolute inset-0 bg-[url('/logos/itsasoo-watermark.svg')] opacity-5 bg-contain bg-center bg-no-repeat" />
+        <div className="min-h-screen w-full bg-[#031A2F] text-white antialiased">
+            {/* HERO (dark + image) */}
+            <header className="relative h-screen flex items-center justify-center overflow-hidden">
+                <img
+                    src="/contact/contact_bg.jpg"
+                    alt="Hero Background"
+                    className="absolute inset-0 w-full h-full object-cover brightness-60"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
 
-                <motion.div
-                    variants={fadeUp}
-                    initial="initial"
-                    animate="animate"
-                    className="relative px-4 max-w-4xl text-center z-10"
-                >
-                    <h1 className="text-5xl md:text-7xl font-extrabold leading-[1.1] bg-gradient-to-r from-blue-600  via-[#6fa9cf] to-blue-100 text-transparent bg-clip-text">
-                        Contact ITSASOO SOLUTIONS PRIVATE LIMITED
-                    </h1>
-                    <p className="mt-6 text-xl md:text-2xl text-blue-300">
-                        We’re here to help you scale with precision, compliance & world-class support.
-                    </p>
-                    <div className="mt-12 flex justify-center gap-6 flex-wrap">
-                        <motion.button
-                            whileHover={{ scale: 1.05, boxShadow: "0 0 20px #4FC3F7" }}
-                            whileTap={{ scale: 0.95 }}
-                            className="bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-14 py-4 text-lg shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
-                        >
-                            Send a Message
-                        </motion.button>
-                        <motion.button
-                            whileHover={{ scale: 1.05, boxShadow: "0 0 20px #4FC3F7" }}
-                            whileTap={{ scale: 0.95 }}
-                            className="border border-[#4FC3F7] text-[#4FC3F7] font-semibold rounded-lg px-14 py-4 text-lg shadow-lg hover:bg-[#4FC3F7] hover:text-[#031A2F] focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
-                        >
-                            Schedule a Call
-                        </motion.button>
-                    </div>
-                </motion.div>
-            </section>
+                {/* Ambient shapes */}
+                <div className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-[#4FC3F7]/20 blur-3xl mix-blend-screen" />
+                <div className="absolute -right-28 bottom-10 w-72 h-72 rounded-full bg-[#4FC3F7]/10 blur-2xl mix-blend-screen" />
 
-            {/* 2️⃣ Contact Form Section */}
-            <section className="py-24 max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12">
-                {/* Form */}
-                <motion.form
-                    initial={{ opacity: 0, y: 40 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-white bg-opacity-10 backdrop-blur-md rounded-3xl p-10 flex flex-col space-y-6 shadow-lg border border-[#4FC3F7]/30"
-                    onSubmit={(e) => e.preventDefault()}
-                >
-                    {[
-                        { label: "Full Name", type: "text", name: "fullName", icon: <Users className="w-5 h-5 text-[#4FC3F7]" /> },
-                        { label: "Email", type: "email", name: "email", icon: <Mail className="w-5 h-5 text-[#4FC3F7]" /> },
-                        { label: "Phone", type: "tel", name: "phone", icon: <Phone className="w-5 h-5 text-[#4FC3F7]" /> },
-                        { label: "Company", type: "text", name: "company", icon: <Globe2 className="w-5 h-5 text-[#4FC3F7]" /> },
-                    ].map(({ label, type, name, icon }) => (
-                        <div key={name} className="flex items-center border border-[#4FC3F7]/40 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-[#4FC3F7]">
-                            <div className="p-3 bg-[#4FC3F7]/10 flex items-center justify-center">{icon}</div>
-                            <input
-                                type={type}
-                                name={name}
-                                placeholder={label}
-                                value={form[name as keyof typeof form]}
-                                onChange={handleChange}
-                                required
-                                className="flex-grow bg-transparent px-4 py-3 placeholder-[#BFD9E8] text-white focus:outline-none"
-                            />
-                        </div>
-                    ))}
+                <div className="relative top-2 z-10 max-w-5xl px-6 text-center">
+                    <FadeUp>
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] via-[#ffffff] to-[#ffffff]">
+                            Let’s Build Something Incredible Together
+                        </h1>
+                    </FadeUp>
 
-                    <div className="flex items-center border border-[#4FC3F7]/40 rounded-lg overflow-hidden focus-within:ring-2 focus-within:ring-[#4FC3F7]">
-                        <div className="p-3 bg-[#4FC3F7]/10 flex items-center justify-center">
-                            <BarChart2 className="w-5 h-5 text-[#4FC3F7]" />
-                        </div>
-                        <select
-                            name="serviceType"
-                            value={form.serviceType}
-                            onChange={handleChange}
-                            required
-                            className="flex-grow bg-transparent px-4 py-3 text-white placeholder-[#BFD9E8] focus:outline-none"
-                        >
-                            <option value="" disabled>
-                                Select Service Type
-                            </option>
-                            <option value="Finance & Accounting">Finance & Accounting</option>
-                            <option value="IT Services">IT Services</option>
-                            <option value="Digital Marketing">Digital Marketing</option>
-                            <option value="Other">Other</option>
-                        </select>
-                    </div>
+                    <FadeUp delay={0.12}>
+                        <p className="mt-6 text-1xl text-extrabold  text-[#ffffff]  mx-auto">
+                            Whether you want to discuss a project, start a partnership, or simply ask a question — we’re here to help.
+                        </p>
+                    </FadeUp>
 
-                    <textarea
-                        name="message"
-                        placeholder="Your Message"
-                        value={form.message}
-                        onChange={handleChange}
-                        required
-                        rows={5}
-                        className="resize-none bg-white bg-opacity-10 rounded-lg p-4 placeholder-[#BFD9E8] text-white focus:outline-none focus:ring-2 focus:ring-[#4FC3F7]"
-                    />
+                    <FadeUp delay={0.24}>
+                        <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
+                            <a href="#contact-form" className="inline-block">
+                                <motion.button
+                                    whileHover={{ scale: 1.03, boxShadow: "0 8px 40px rgba(79,195,247,0.28)" }}
+                                    className="rounded-2xl bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] text-2xl font-semibold px-8 py-3 shadow-2xl"
+                                >
+                                    Get in Touch
+                                </motion.button>
+                            </a>
 
-                    <label className="inline-flex items-center space-x-3">
-                        <input
-                            type="checkbox"
-                            name="consent"
-                            checked={form.consent}
-                            onChange={handleChange}
-                            required
-                            className="form-checkbox h-5 w-5 text-[#4FC3F7] rounded transition duration-200"
-                        />
-                        <span className="text-white text-sm">I consent to providing my data for this inquiry.</span>
-                    </label>
-
-                    <motion.button
-                        whileHover={{ boxShadow: "0 0 15px #4FC3F7" }}
-                        whileTap={{ scale: 0.95 }}
-                        type="submit"
-                        disabled={!form.consent}
-                        className="bg-[#4FC3F7] disabled:opacity-60 disabled:cursor-not-allowed text-[#031A2F] font-semibold rounded-lg px-10 py-4 text-xl shadow-lg focus:outline-none transition"
-                    >
-                        Send Message →
-                    </motion.button>
-                </motion.form>
-
-                {/* Contact Information Card */}
-                <motion.div
-                    initial={{ opacity: 0, x: 40 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    className="bg-[#0A2E4D] rounded-3xl p-10 shadow-xl flex flex-col justify-between"
-                >
-                    <h3 className="text-white text-3xl font-bold mb-6">Contact Information</h3>
-                    <div className="space-y-6">
-                        <div className="flex items-center space-x-4">
-                            <Mail className="text-[#4FC3F7] w-6 h-6" />
-                            <a href="mailto:contact@itsasoo.com" className="text-[#BFD9E8] hover:text-[#4FC3F7] transition">
-                                contact@itsasoo.com
+                            <a href="#schedule" className="inline-block">
+                                <motion.button
+                                    whileHover={{ scale: 1.03 }}
+                                    className="rounded-2xl border border-[#4FC3F7]/40 text-[#BFD9E8] px-8 py-3 font-semibold backdrop-blur-sm text-2xl"
+                                >
+                                    Schedule a Call
+                                </motion.button>
                             </a>
                         </div>
-                        <div className="flex items-center space-x-4">
-                            <Phone className="text-[#4FC3F7] w-6 h-6" />
-                            <div>
-                                <p className="text-[#BFD9E8]">+91 XXXXX XXXXX</p>
-                                <p className="text-[#BFD9E8]">+1 (XXX) XXX-XXXX</p>
+                    </FadeUp>
+
+                    <FadeUp delay={0.36}>
+                        <div className="mt-12 flex items-center justify-center gap-6 text-sm text-[#BFD9E8]/80">
+                            <div className="flex items-center gap-3">
+                                <svg width="18" height="18" fill="none" className="opacity-90"><circle cx="9" cy="9" r="8" stroke="#4FC3F7" /></svg>
+                                <span>24×7 Global Support</span>
+                            </div>
+                            <div className="flex items-center gap-3">
+                                <svg width="18" height="18" fill="none" className="opacity-90"><rect x="2" y="2" width="14" height="14" stroke="#4FC3F7" rx="3" /></svg>
+                                <span>ISO & SOC2 Ready</span>
                             </div>
                         </div>
-                        <div className="flex items-start space-x-4">
-                            <MapPin className="text-[#4FC3F7] w-6 h-6 mt-1" />
-                            <address className="not-italic text-[#BFD9E8]">
-                                ITSASOO Solutions Pvt Ltd<br />
-                                Corporate HQ, India
-                            </address>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                            <Clock className="text-[#4FC3F7] w-6 h-6" />
-                            <p className="text-[#BFD9E8]">24×7 Support for Global Clients</p>
-                        </div>
+                    </FadeUp>
+                </div>
+
+                {/* decorative dots */}
+                <div className="absolute right-6 top-6 text-[#4FC3F7]/10"> </div>
+            </header>
+
+            {/* Contact Info (glass light) */}
+            <section className="relative bg-gradient-to-b from-white/80 via-[#E6F7FF]/60 to-white/80 text-[#031A2F] py-14">
+                <div className="max-w-7xl mx-auto px-6">
+                    <FadeUp>
+                        <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
+                            Contact Information
+                        </h2>
+                    </FadeUp>
+
+                    <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mt-8">
+                        {[
+                            {
+                                icon: "📧",
+                                title: "Email",
+                                lines: ["social@itsasoo.com"],
+                                link: "mailto:social@itsasoo.com"
+                            },
+                            {
+                                icon: "📞",
+                                title: "Phone",
+                                lines: ["+91 12052 95768"],
+                                link: "tel:+911205295768"
+                            },
+                            {
+                                icon: "📍",
+                                title: "Office",
+                                lines: ["India (HQ)"],
+                                link: null
+                            },
+                            {
+                                icon: "⏰",
+                                title: "Hours",
+                                lines: ["24×7 Support for clients"],
+                                link: null
+                            },
+                        ].map((c, i) => {
+                            const Wrapper: any = c.link ? "a" : "div"; // If link exists, use <a>, otherwise <div>
+
+                            return (
+                                <Wrapper
+                                    key={i}
+                                    href={c.link || undefined}
+                                    className="
+                            backdrop-blur-sm bg-white/60 border border-white/40 
+                            shadow-lg rounded-2xl p-6 text-center cursor-pointer
+                            transition-all hover:shadow-xl
+                        "
+                                    target={c.link?.startsWith("http") ? "_blank" : undefined}
+                                >
+                                    <motion.div whileHover={{ y: -6 }}>
+                                        <div className="w-14 h-14 rounded-lg inline-flex items-center justify-center bg-gradient-to-br from-[#EAFBFF] to-white text-2xl mb-3 shadow-inner">
+                                            {c.icon}
+                                        </div>
+                                        <h4 className="font-semibold text-2xl">{c.title}</h4>
+                                        {c.lines.map((l, idx) => (
+                                            <p key={idx} className="text-1xl mt-1">{l}</p>
+                                        ))}
+                                    </motion.div>
+                                </Wrapper>
+                            );
+                        })}
                     </div>
-                </motion.div>
+                </div>
             </section>
 
-            {/* 3️⃣ Contact Information Grid */}
-            <section className="max-w-7xl mx-auto px-6 grid grid-cols-1 md:grid-cols-4 gap-8 py-12">
-                {[
-                    {
-                        icon: <Mail className="w-10 h-10 text-[#4FC3F7]" />,
-                        title: "Email",
-                        content: "contact@itsasoo.com",
-                    },
-                    {
-                        icon: <Phone className="w-10 h-10 text-[#4FC3F7]" />,
-                        title: "Phone",
-                        content: ["+91 XXXXX XXXXX", "+1 (XXX) XXX-XXXX"],
-                    },
-                    {
-                        icon: <MapPin className="w-10 h-10 text-[#4FC3F7]" />,
-                        title: "Office Address",
-                        content: [
-                            "India (HQ)",
-                            "USA, Canada, UK, Australia, New Zealand",
-                        ],
-                    },
-                    {
-                        icon: <Clock className="w-10 h-10 text-[#4FC3F7]" />,
-                        title: "Business Hours",
-                        content: "24×7 Support for Global Clients",
-                    },
-                ].map(({ icon, title, content }, i) => (
+
+            {/* Contact Form (deep navy + glass form) */}
+            <section id="contact-form" className="bg-[#031A2F] py-16">
+                <div className="max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+                    <FadeUp>
+                        <div className="text-white">
+                            <h3 className="text-3xl font-bold mb-4">Let’s Build Something Great</h3>
+                            <p className="text-[#BFD9E8] max-w-xl">Share a few details and our specialists will reach out with next steps. We typically reply within 24 hours.</p>
+
+                            <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div className="p-6 bg-[#0A2E4D] rounded-2xl border border-white/6 shadow-md">
+                                    <h5 className="font-semibold">Trusted Security</h5>
+                                    <p className="mt-2 text-sm text-[#BFD9E8]">ISO & SOC2-ready infrastructure and encrypted data.</p>
+                                </div>
+                                <div className="p-6 bg-[#0A2E4D] rounded-2xl border border-white/6 shadow-md">
+                                    <h5 className="font-semibold">Experienced Team</h5>
+                                    <p className="mt-2 text-sm text-[#BFD9E8]">Senior engineers, product managers and compliance specialists.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </FadeUp>
+
+                    <FadeUp delay={0.08}>
+                        <form onSubmit={handleSubmit} className="relative bg-gradient-to-br from-[#072335]/80 via-[#041726]/60 to-[#072335]/80 border border-[#4FC3F7]/10 p-8 rounded-3xl shadow-xl">
+                            <div className="absolute -top-6 left-6 w-20 h-20 rounded-full bg-[#4FC3F7]/10 blur-2xl" />
+                            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" className="px-4 py-3 rounded-xl bg-[#031A2F]/60 border border-white/6 outline-none" />
+                                <input name="email" value={form.email} onChange={handleChange} placeholder="Your Email" type="email" className="px-4 py-3 rounded-xl bg-[#031A2F]/60 border border-white/6 outline-none" />
+                                <input name="phone" value={form.phone} onChange={handleChange} placeholder="Phone (optional)" className="px-4 py-3 rounded-xl bg-[#031A2F]/60 border border-white/6 outline-none" />
+                                <input name="subject" value={form.subject} onChange={handleChange} placeholder="Subject" className="px-4 py-3 rounded-xl bg-[#031A2F]/60 border border-white/6 outline-none" />
+                            </div>
+
+                            <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your project" rows={6} className="mt-4 w-full px-4 py-3 rounded-2xl bg-[#031A2F]/60 border border-white/6 outline-none" />
+
+                            <div className="mt-4 flex items-center justify-between gap-4">
+                                <button disabled={sending} className="inline-flex items-center gap-3 bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] px-6 py-3 rounded-2xl font-semibold shadow-lg hover:opacity-95">
+                                    {sending ? 'Sending…' : 'Send Message'}
+                                </button>
+
+                                <div className="text-sm text-[#BFD9E8]"> <svg width="16" height="16" className="inline-block mr-1"><rect width="14" height="10" x="1" y="3" stroke="#4FC3F7" rx="2" /></svg> Your data is secure & encrypted</div>
+                            </div>
+                        </form>
+                    </FadeUp>
+                </div>
+            </section>
+
+            {/* FAQ (electric blue gradient subtle) */}
+            <section className="bg-gradient-to-b from-[#E8F9FF]/60 via-white/40 to-[#E8F9FF]/60 py-16">
+                <div className="max-w-5xl mx-auto px-6">
+                    <FadeUp>
+                        <h3 className="text-3xl font-bold text-center mb-8 text-[#031A2F]">Frequently Asked Questions</h3>
+                    </FadeUp>
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        {faqs.map((f, i) => (
+                            <motion.div key={i} whileHover={{ scale: 1.01 }} className="p-6 rounded-2xl bg-white/90 border border-[#4FC3F7]/8">
+                                <summary className="list-none text-[#031A2F] font-semibold">{f.q}</summary>
+                                <p className="mt-3 text-sm text-[#0A2E4D]">{f.a}</p>
+                            </motion.div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* Map section (light gradient) */}
+            {/* ================= MAP SECTION (Interactive Premium) ================= */}
+            <section className="relative py-20 bg-gradient-to-br from-white via-blue-50/50 to-white overflow-hidden">
+
+                {/* Ambient shapes */}
+                <div className="absolute -top-10 -left-20 w-60 h-60 bg-[#4FC3F7]/20 blur-3xl rounded-full"></div>
+                <div className="absolute bottom-0 right-0 w-80 h-80 bg-[#4FC3F7]/10 blur-3xl rounded-full"></div>
+
+                <div className="relative max-w-7xl mx-auto px-6 grid grid-cols-1 lg:grid-cols-2 gap-14 items-center">
+
+                    {/* TEXT BLOCK */}
                     <motion.div
-                        key={i}
-                        whileHover={{ y: -8, boxShadow: "0 10px 25px rgba(79,195,247,0.4)" }}
-                        className="bg-[#0A2E4D] rounded-2xl p-6 text-center cursor-default"
+                        initial={{ opacity: 0, x: -40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="backdrop-blur-xl bg-white/60 rounded-3xl border border-white/50 shadow-xl p-10"
                     >
-                        <div className="flex justify-center mb-4">{icon}</div>
-                        <h4 className="text-white text-xl font-semibold mb-2">{title}</h4>
-                        {Array.isArray(content) ? (
-                            content.map((line, idx) => (
-                                <p key={idx} className="text-[#BFD9E8] mb-1">
-                                    {line}
-                                </p>
-                            ))
-                        ) : (
-                            <p className="text-[#BFD9E8]">{content}</p>
-                        )}
+                        <h3 className="text-4xl font-extrabold text-[#031A2F] mb-4">
+                            Find Us
+                        </h3>
+
+                        <p className="text-[#405A6B] leading-relaxed mb-8">
+                            Visit our headquarters or explore our global offices.
+                            Click below to open your location directly in Google Maps.
+                        </p>
+
+                        {/* Animated button */}
+                        <motion.a
+                            href="https://www.google.com/maps/place/PALM+RESORT/@28.7048117,77.4228071,627m/data=!3m1!1e3!4m6!3m5!1s0x390cf100492190fb:0x78ad7f49093157cf!8m2!3d28.704807!4d77.425382!16s%2Fg%2F11xfb395s0?entry=ttu&g_ep=EgoyMDI1MTExNy4wIKXMDSoASAFQAw%3D%3D"
+                            target="_blank"
+                            rel="noreferrer"
+                            whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(79,195,247,0.45)" }}
+                            className="inline-flex items-center gap-3 px-7 py-3 rounded-full 
+                            bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] 
+                            text-[#031A2F] font-semibold shadow-lg"
+                        >
+                            <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
+                                <path stroke="#031A2F" strokeWidth="1.8"
+                                    d="M12 2C8.134 2 5 5.134 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.866-3.134-7-7-7z" />
+                                <circle cx="12" cy="9" r="2.5" stroke="#031A2F" strokeWidth="1.8" />
+                            </svg>
+
+                            Open in Google Maps
+                        </motion.a>
                     </motion.div>
-                ))}
-            </section>
 
-            {/* 4️⃣ Interactive Map Section */}
-            <section className="relative max-w-7xl mx-auto px-6 py-20 text-center">
-                <h2 className="text-white text-4xl font-bold mb-12">Our Global Presence</h2>
-                <div className="relative h-[500px] rounded-xl overflow-hidden shadow-lg">
-                    <img
-                        src="/maps/world-map-muted.svg" // Placeholder subtle map image
-                        alt="Global Presence Map"
-                        className="w-full h-full object-cover grayscale brightness-75"
-                    />
-                    {/* Example Pins */}
-                    {[
-                        { name: "India (HQ)", x: "58%", y: "74%" },
-                        { name: "USA", x: "18%", y: "43%" },
-                        { name: "Canada", x: "13%", y: "32%" },
-                        { name: "UK", x: "22%", y: "31%" },
-                        { name: "Australia", x: "73%", y: "86%" },
-                        { name: "New Zealand", x: "84%", y: "92%" },
-                    ].map(({ name, x, y }) => (
-                        <div
-                            key={name}
-                            className="absolute bg-[#4FC3F7] rounded-full w-5 h-5 shadow-lg animate-ping-slow"
-                            style={{ top: y, left: x, transform: "translate(-50%, -50%)" }}
-                            title={name}
-                        />
-                    ))}
-                </div>
-            </section>
-
-            {/* 5️⃣ Live Support Section (Optional) */}
-            <section className="fixed bottom-8 right-8 z-50">
-                <div className="bg-[#4FC3F7] text-[#031A2F] rounded-full shadow-lg p-4 cursor-pointer hover:scale-110 transform transition">
-                    <svg
-                        className="w-8 h-8"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
+                    {/* MAP BLOCK */}
+                    <motion.div
+                        initial={{ opacity: 0, x: 40 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.7 }}
+                        className="rounded-3xl shadow-2xl overflow-hidden border border-[#4FC3F7]/20 bg-white"
                     >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 10h.01M12 10h.01M16 10h.01M21 16v-2a2 2 0 00-2-2H7l-4 4v2a2 2 0 002 2h12l4-4z" />
-                    </svg>
-                    <span className="sr-only">Talk to our support assistant</span>
+                        {/* 
+        ⭐ To Set Your Location:
+        1. Go to https://maps.google.com
+        2. Search your place
+        3. Click 'Share'
+        4. Click 'Embed a map'
+        5. Copy the <iframe src="..."> link
+        6. Replace ONLY the src="" below
+      */}
+
+                        <iframe
+                            title="itsasoo-office-map"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2729.422209067686!2d77.42280707422611!3d28.70481168079703!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x390cf100492190fb%3A0x78ad7f49093157cf!2sPALM%20RESORT!5e1!3m2!1sen!2sin!4v1763682504112!5m2!1sen!2sin"
+                            className="w-full h-[380px] lg:h-[460px] border-0"
+                            loading="lazy"
+                            referrerPolicy="no-referrer-when-downgrade"
+                            allowFullScreen
+                        ></iframe>
+                    </motion.div>
+
                 </div>
             </section>
 
-            {/* 6️⃣ FAQ Section */}
-            <section className="py-24 max-w-7xl mx-auto px-6">
-                <h2 className="text-white text-4xl font-bold mb-12 text-center">Frequently Asked Questions</h2>
-                <div className="max-w-4xl mx-auto space-y-4 text-white">
-                    {[
-                        { q: "How quickly does your team respond?", a: "Typically within 1 hour during business hours." },
-                        { q: "Do you offer customized pricing?", a: "Yes, we tailor pricing to your requirements and scale." },
-                        { q: "What industries do you support?", a: "Finance, IT, healthcare, e-commerce, and more." },
-                        { q: "What files do you need to start?", a: "We will request these during project kickoff for compliance." },
-                        { q: "Do you provide NDAs?", a: "Absolutely, confidentiality is guaranteed with signed NDAs." },
-                        { q: "How do you ensure data security?", a: "We follow ISO and SOC2 standards with GDPR compliance." },
-                        { q: "What timezones do you support?", a: "Our support operates 24/7 across global timezones." },
-                    ].map(({ q, a }, i) => (
-                        <details key={i} className="border border-[#4FC3F7]/40 rounded-lg p-4 bg-[#0A2E4D] cursor-pointer">
-                            <summary className="text-lg font-semibold">{q}</summary>
-                            <p className="mt-2 text-[#BFD9E8]">{a}</p>
-                        </details>
-                    ))}
-                </div>
-            </section>
 
-            {/* 7️⃣ CTA Strip */}
-            <section
-                className="py-20 bg-gradient-to-r from-[#031A2F] via-[#064A7F] to-[#4FC3F7] text-white text-center relative overflow-hidden"
-            >
-                <div className="max-w-4xl mx-auto px-6 z-20 relative">
-                    <h2 className="text-5xl font-extrabold mb-6 drop-shadow-lg">
-                        Ready to Transform Your Finance, IT & Digital Operations?
-                    </h2>
-                    <motion.button
-                        whileHover={{ scale: 1.05, boxShadow: "0 0 25px #4FC3F7" }}
-                        whileTap={{ scale: 0.95 }}
-                        className="bg-white text-[#031A2F] rounded-full px-16 py-4 font-semibold shadow-lg outline-none focus-visible:ring-4 focus-visible:ring-[#4FC3F7]/70 transition"
-                    >
-                        Get Started
-                    </motion.button>
-                </div>
-                <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-10 pointer-events-none" />
-            </section>
+            {/* Testimonials (dark glossy) */}
+            <section className="bg-[#031A2F] py-16">
+                <div className="max-w-5xl mx-auto px-6 text-center">
+                    <FadeUp>
+                        <h3 className="text-3xl font-bold mb-8">What Clients Say</h3>
+                    </FadeUp>
 
-            {/* 8️⃣ Social Proof Section (Optional) */}
-            <section className="max-w-7xl mx-auto px-6 py-12 flex justify-center space-x-8 filter grayscale opacity-60">
-                {[1, 2, 3, 4, 5].map((n) => (
-                    <img key={n} src={`/clients/logo${n}.svg`} alt="Client logo" className="h-12 w-auto" />
-                ))}
-            </section>
-
-            {/* 9️⃣ Success Metrics */}
-            <section className="bg-[#062033] py-16 px-6 text-white max-w-7xl mx-auto rounded-xl flex flex-wrap justify-around gap-8 text-center">
-                <div className="flex flex-col items-center">
-                    <span className="text-5xl font-extrabold text-[#4FC3F7]">120+</span>
-                    <span>Global Clients</span>
-                </div>
-                <div className="flex flex-col items-center">
-                    <span className="text-5xl font-extrabold text-[#4FC3F7]">99.4%</span>
-                    <span>Accuracy</span>
-                </div>
-                <div className="flex flex-col items-center">
-                    <span className="text-5xl font-extrabold text-[#4FC3F7]">24×7</span>
-                    <span>Dedicated Support</span>
-                </div>
-                <div className="flex flex-col items-center">
-                    <span className="text-5xl font-extrabold text-[#4FC3F7]">5</span>
-                    <span>Global Delivery Centers</span>
-                </div>
-                <div className="flex flex-col items-center">
-                    <span className="text-5xl font-extrabold text-[#4FC3F7]">6+</span>
-                    <span>Years Combined Team Expertise</span>
-                </div>
-            </section>
-
-            {/* 1️⃣0️⃣ Compliance / Security Strip */}
-            <section className="bg-[#031A2F] text-[#4FC3F7] py-6 flex justify-center gap-12 max-w-7xl mx-auto">
-                {[
-                    { label: "ISO Certified", icon: <ShieldCheck className="w-6 h-6" /> },
-                    { label: "SOC 2 Standards", icon: <ShieldCheck className="w-6 h-6" /> },
-                    { label: "GDPR Compliance", icon: <ShieldCheck className="w-6 h-6" /> },
-                    { label: "NDA & Data Security", icon: <ShieldCheck className="w-6 h-6" /> },
-                ].map(({ label, icon }, i) => (
-                    <div key={i} className="flex items-center space-x-2 text-sm">
-                        {icon}
-                        <span>{label}</span>
+                    <div className="relative">
+                        <div className="flex gap-6 overflow-x-auto pb-4 px-2">
+                            {testimonials.map((t, i) => (
+                                <motion.div key={i} whileHover={{ y: -6 }} className="min-w-[300px] bg-gradient-to-br from-[#072335]/80 to-[#041726]/70 border border-white/6 rounded-2xl p-6 shadow-2xl">
+                                    <p className="text-[#BFD9E8] italic">“{t.quote}”</p>
+                                    <div className="mt-4 text-sm">
+                                        <strong className="text-white">{t.name}</strong>
+                                        <div className="text-[#9fc2d8]">{t.company} — {t.country}</div>
+                                    </div>
+                                </motion.div>
+                            ))}
+                        </div>
                     </div>
-                ))}
+                </div>
             </section>
 
-            {/* 1️⃣1️⃣ Footer (Imported or Built Separately) */}
-        </main>
+            {/* CTA (dual-tone gradient) */}
+            <section className="py-20 bg-gradient-to-r from-[#062033] via-[#04243a] to-[#053047] text-white">
+                <div className="max-w-5xl mx-auto px-6 text-center">
+                    <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl font-bold mb-4">Ready to start your project? Let’s talk.</motion.h2>
+                    <p className="text-[#BFD9E8] mb-8">Our specialists will get back to you within 24 hours.</p>
+
+                    <motion.a whileHover={{ scale: 1.04, boxShadow: '0 10px 40px rgba(79,195,247,0.25)' }} href="#contact-form" className="inline-block px-10 py-4 rounded-3xl bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] font-semibold">Contact Now</motion.a>
+                </div>
+            </section>
+        </div>
     );
 }

@@ -169,7 +169,7 @@ export default function FinanceOutsourcing() {
                             { name: "Canada", link: "/services/finance/canada", flag: "/finance/countries/canada/canada.jpg" },
                             { name: "United Kingdom", link: "/services/finance/uk", flag: "/finance/countries/uk/uk.jpg" },
                             { name: "Australia", link: "/services/finance/australia", flag: "/finance/countries/australia/australia.jpg" },
-                            { name: "New Zealand", link: "/services/finance/newzealand", flag: "/finance/countries/newzealand/newzeland.jpg" },
+                            { name: "New Zealand", link: "/services/finance/newzealand", flag: "/finance/countries/newzealand/newzealand.jpg" },
                             { name: "India & Other Countries", link: "/services/finance/india", flag: "/finance/countries/india/india.jpg" },
                         ].map((country, i) => (
                             <Link href={country.link} key={country.name} className="w-full max-w-[330px]">

@@ -27,20 +27,22 @@ const HeroSection: React.FC = () => (
             <p className="text-lg md:text-2xl mt-6 max-w-3xl mx-auto text-blue-200">
                 Engineering scalable digital solutions for global businesses.
             </p>
-            <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
-                whileTap={{ scale: 0.95 }}
-                className="mt-10 bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
-            >
-                Get Started
-            </motion.button>
+            <Link href="#OverviewSection" passHref>
+                <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 15px #4FC3F7" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="mt-10 bg-[#4FC3F7] text-[#031A2F] font-semibold rounded-lg px-16 py-4 text-xl shadow-lg focus:outline-none focus:ring-4 focus:ring-[#4FC3F7]/60 transition"
+                >
+                    Get Started
+                </motion.button>
+            </Link>
         </motion.div>
     </section>
 );
 
 // 2️⃣ Overview Section
 const OverviewSection: React.FC = () => (
-    <section className="py-24 bg-[#F6FAFF]">
+    <section className="py-24 bg-[#F6FAFF]" id="OverviewSection">
         <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
             <motion.div
                 initial={{ opacity: 0, x: -40 }}
@@ -474,19 +476,20 @@ const CTASection: React.FC = () => (
             <h2 className="text-5xl font-extrabold drop-shadow-lg mb-6">
                 Ready to build scalable digital solutions with ITSASOO?
             </h2>
-            <motion.button
-                whileHover={{ scale: 1.05, boxShadow: "0 0 20px #4FC3F7" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-white text-[#031A2F] font-semibold rounded-full px-16 py-4 text-xl shadow-lg outline-none focus-visible:ring-4 focus-visible:ring-[#4FC3F7]/70 transition"
-            >
-                ➡ Get Started
-            </motion.button>
+            <Link href="/contact" passHref>
+                <motion.button
+                    whileHover={{ scale: 1.05, boxShadow: "0 0 20px #4FC3F7" }}
+                    whileTap={{ scale: 0.95 }}
+                    className="bg-white text-[#031A2F] font-semibold rounded-full px-16 py-4 text-xl shadow-lg outline-none focus-visible:ring-4 focus-visible:ring-[#4FC3F7]/70 transition"
+                >
+                    ➡ Get Started
+                </motion.button>
+            </Link>
         </div>
         <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-10 pointer-events-none" />
     </section>
 );
 
-// 🔟 Footer Section would be imported and placed here or included similarly.
 
 
 export default function ITOutsourcingPage() {
@@ -496,12 +499,10 @@ export default function ITOutsourcingPage() {
             <OverviewSection />
             <ServicesGridSection />
             <WhyChooseSection />
-            {/* <ProjectTimelineSection /> */}
             <TechCloudSection />
             <IndustriesSection />
             <TestimonialsSection />
             <CTASection />
-            {/* Footer can be added here */}
         </>
     );
 }
