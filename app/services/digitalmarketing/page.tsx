@@ -61,7 +61,7 @@ const HeroSection: React.FC = () => (
 
 // 2️⃣ Services Grid Section
 interface Service {
-    icon: JSX.Element;
+    icon: React.ReactElement;
     title: string;
     description: string;
 }

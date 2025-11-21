@@ -7,7 +7,7 @@ const easeBezier = [0.16, 1, 0.3, 1] as [number, number, number, number];
 
 export default function AboutSection() {
     return (
-        <section className="relative w-full py-28 bg-gradient-to-b from-[#F7F9FC] via-[#EEF3F9] to-[#F7FAFF] overflow-hidden">
+        <section className="relative w-full py-28 bg-linear-to-b from-[#F7F9FC] via-[#EEF3F9] to-[#F7FAFF] overflow-hidden">
 
             {/* Soft enterprise background blobs */}
             <div className="absolute -top-32 -left-20 w-[380px] h-[380px] bg-[#E1EAF4] rounded-full blur-[120px] opacity-60" />
@@ -32,7 +32,7 @@ export default function AboutSection() {
                         {/* Title */}
                         <h2 className="text-4xl md:text-5xl font-bold text-[#0C1B2E] leading-tight tracking-tight">
                             Modernizing Finance & Technology
-                            <span className="block mt-1 bg-clip-text text-transparent bg-gradient-to-r from-[#1D3557] to-[#335E89]">
+                            <span className="block mt-1 bg-clip-text text-transparent bg-linear-to-r from-[#1D3557] to-[#335E89]">
                                 with Enterprise Precision
                             </span>
                         </h2>

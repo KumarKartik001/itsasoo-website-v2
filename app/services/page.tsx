@@ -34,7 +34,7 @@ export default function Servicepage() {
     return (
         <section className="relative w-full py-24 md:py-32 overflow-hidden bg-[#061529]">
             {/* Soft Gradient Overlay */}
-            <div className="absolute inset-0 bg-gradient-to-b from-[#0A1E3B]/70 to-[#061529] pointer-events-none" />
+            <div className="absolute inset-0 bg-linear-to-b from-[#0A1E3B]/70 to-[#061529] pointer-events-none" />
 
             <div className="relative max-w-7xl mx-auto px-6 text-center">
                 {/* Title */}
@@ -69,7 +69,7 @@ export default function Servicepage() {
                                     />
 
                                     {/* dark overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-t from-black/72 to-transparent" />
+                                    <div className="absolute inset-0 bg-linear-to-t from-black/72 to-transparent" />
 
                                     {/* content */}
                                     <div className="relative z-10 p-7 flex flex-col justify-end h-full">

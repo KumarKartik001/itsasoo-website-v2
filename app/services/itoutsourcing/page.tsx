@@ -12,7 +12,7 @@ const HeroSection: React.FC = () => (
             className="absolute inset-0 bg-cover bg-center"
             style={{ backgroundImage: "url('/it/it_bg.jpg')" }} // Placeholder image URL
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-black/75 via-black/40 to-black/75" />
+        <div className="absolute inset-0 bg-linear-to-b from-black/75 via-black/40 to-black/75" />
         <div className="absolute inset-0 bg-[url('/effects/fog.png')] opacity-20" />
         <div className="absolute inset-0 bg-[url('/effects/particles.png')] opacity-10" />
         <motion.div
@@ -84,7 +84,7 @@ const OverviewSection: React.FC = () => (
 // 3️⃣ Services Grid
 interface Service {
     title: string;
-    icon: JSX.Element;
+    icon: React.ReactElement;
     description: string;
 }
 const services: Service[] = [
@@ -257,7 +257,7 @@ const ProjectTimelineSection: React.FC = () => (
                             style={{ flexDirection: isLeft ? "row" : "row-reverse" }}
                         >
                             {/* Dot on timeline */}
-                            <div className="absolute left-[-14px] top-6 bg-[#4FC3F7] rounded-full w-7 h-7 shadow-lg" />
+                            <div className="absolute -left-3.5 top-6 bg-[#4FC3F7] rounded-full w-7 h-7 shadow-lg" />
 
                             {/* Text Card */}
                             <div className="w-1/2 bg-[#0A2E4D] rounded-2xl p-6 shadow-lg text-white z-10">
@@ -471,7 +471,7 @@ const TestimonialsSection: React.FC = () => (
 // 9️⃣ CTA Section
 
 const CTASection: React.FC = () => (
-    <section className="py-24 bg-gradient-to-r from-[#122147] via-[#275e9c] to-[#1d73d4] text-white text-center relative overflow-hidden">
+    <section className="py-24 bg-linear-to-r from-[#122147] via-[#275e9c] to-[#1d73d4] text-white text-center relative overflow-hidden">
         <div className="max-w-4xl px-6 mx-auto relative z-10">
             <h2 className="text-5xl font-extrabold drop-shadow-lg mb-6">
                 Ready to build scalable digital solutions with ITSASOO?

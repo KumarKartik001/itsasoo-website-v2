@@ -88,7 +88,7 @@ const cardVariants = {
 };
 
 const FuturisticCaseStudies = () => (
-    <section className="bg-gradient-to-b from-[#bcdcff] to-[#f3f6f8] py-20 px-6 min-h-screen">
+    <section className="bg-linear-to-b from-[#bcdcff] to-[#f3f6f8] py-20 px-6 min-h-screen">
         <div className="max-w-7xl mx-auto text-center mb-12">
             <h2 className="text-5xl font-extrabold tracking-tight text-[#0A2E4D] drop-shadow-md">
                 Case Studies / Success Stories
@@ -107,7 +107,7 @@ const FuturisticCaseStudies = () => (
                     whileHover="hover"
                     animate="rest"
                     variants={cardVariants}
-                    className="relative rounded-xl bg-white/[0.06] bg-clip-padding backdrop-blur-md border border-white/20 p-8 flex flex-col items-start cursor-pointer transition-transform will-change-transform outline-none focus:outline-none"
+                    className="relative rounded-xl bg-white/6 bg-clip-padding backdrop-blur-md border border-white/20 p-8 flex flex-col items-start cursor-pointer transition-transform will-change-transform outline-none focus:outline-none"
                 >
                     <div className="mb-5">{icon}</div>
                     <h3 className="text-2xl font-semibold text-[#0A2E4D] mb-3">{industry}</h3>

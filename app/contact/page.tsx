@@ -20,7 +20,12 @@ import { motion } from "framer-motion";
     NOTE: replace image URLs with your actual assets. I referenced /contact/contact_bg.jpg as hero background.
 */
 
-const FadeUp = ({ children, delay = 0 }) => (
+type FadeUpProps = {
+    children: React.ReactNode;
+    delay?: number;
+};
+
+const FadeUp: React.FC<FadeUpProps> = ({ children, delay = 0 }) => (
     <motion.div
         initial={{ opacity: 0, y: 24 }}
         animate={{ opacity: 1, y: 0 }}

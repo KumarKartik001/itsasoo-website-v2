@@ -4,7 +4,7 @@ import Link from "next/link";
 
 export default function HomeAboutSection() {
     return (
-        <section className="relative py-24 overflow-hidden bg-gradient-to-b from-[#F5FAFF] to-[#E9F1FB]">
+        <section className="relative py-24 overflow-hidden bg-linear-to-b from-[#F5FAFF] to-[#E9F1FB]">
 
             {/* Soft floating blob */}
             <div className="absolute -top-28 -left-32 w-[450px] h-[450px] bg-[#DDEBFF] rounded-full blur-[120px] opacity-60" />
@@ -21,7 +21,7 @@ export default function HomeAboutSection() {
                 >
                     <h2 className="text-4xl md:text-5xl font-extrabold text-[#072039] leading-tight">
                         About{" "}
-                        <span className="bg-gradient-to-r from-[#0F4C81] to-[#0086B3] bg-clip-text text-transparent">
+                        <span className="bg-linear-to-r from-[#0F4C81] to-[#0086B3] bg-clip-text text-transparent">
                             ITSASOO SOLUTIONS
                         </span>
                     </h2>
@@ -42,7 +42,7 @@ export default function HomeAboutSection() {
                             "Scalable outsourcing teams trusted globally",
                         ].map((point, i) => (
                             <div key={i} className="flex items-start gap-3">
-                                <span className="mt-2 w-3 h-3 rounded-full bg-gradient-to-br from-[#0F4C81] to-[#0085B2]" />
+                                <span className="mt-2 w-3 h-3 rounded-full bg-linear-to-br from-[#0F4C81] to-[#0085B2]" />
                                 <p className="text-[#2D4555] leading-relaxed">{point}</p>
                             </div>
                         ))}
@@ -55,7 +55,7 @@ export default function HomeAboutSection() {
                             className="
                                 mt-8 px-10 py-4 text-white font-semibold 
                                 rounded-xl shadow-lg 
-                                bg-gradient-to-r from-[#0F4C81] to-[#0086B3]
+                                bg-linear-to-r from-[#0F4C81] to-[#0086B3]
                                 hover:shadow-xl 
                                 transition-all
                             "
@@ -74,7 +74,7 @@ export default function HomeAboutSection() {
                     <div
                         className="
                             relative p-10 rounded-3xl overflow-hidden
-                            bg-gradient-to-b from-[#0A1A2F] to-[#0D2238]
+                            bg-linear-to-b from-[#0A1A2F] to-[#0D2238]
                             text-white
                             shadow-[0_12px_40px_rgba(0,0,0,0.28)]
                             border border-white/10
