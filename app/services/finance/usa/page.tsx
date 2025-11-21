@@ -46,7 +46,7 @@ export default function USAFinancePage() {
                 />
 
                 {/* Overlay */}
-                <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-black/50 to-black/70" />
+                <div className="absolute inset-0 bg-linear-to-b from-black/70 via-black/50 to-black/70" />
 
                 {/* Hero text */}
                 <motion.div {...fadeUp} className="relative text-center max-w-3xl mx-auto text-white px-6">

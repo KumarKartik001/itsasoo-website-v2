@@ -58,7 +58,7 @@ export default function ContactPage() {
         // Simulate sending — replace with actual API call
         setTimeout(() => {
             setSending(false);
-            alert("Thanks — we received your message. We'll be in touch within 24 hours.");
+            // alert("Thanks — we received your message. We'll be in touch within 24 hours.");
             setForm({ name: "", email: "", phone: "", subject: "", message: "" });
         }, 900);
     }
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     alt="Hero Background"
                     className="absolute inset-0 w-full h-full object-cover brightness-60"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-black/10" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-black/10" />
 
                 {/* Ambient shapes */}
                 <div className="absolute -left-40 -top-40 w-96 h-96 rounded-full bg-[#4FC3F7]/20 blur-3xl mix-blend-screen" />
@@ -80,7 +80,7 @@ export default function ContactPage() {
 
                 <div className="relative top-2 z-10 max-w-5xl px-6 text-center">
                     <FadeUp>
-                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-gradient-to-r from-[#ffffff] via-[#ffffff] to-[#ffffff]">
+                        <h1 className="text-2xl md:text-4xl lg:text-5xl font-extrabold leading-tight tracking-tight bg-clip-text text-transparent bg-linear-to-r from-[#ffffff] via-[#ffffff] to-[#ffffff]">
                             Let’s Build Something Incredible Together
                         </h1>
                     </FadeUp>
@@ -93,10 +93,10 @@ export default function ContactPage() {
 
                     <FadeUp delay={0.24}>
                         <div className="mt-10 flex items-center justify-center gap-4 flex-wrap">
-                            <a href="#contact-form" className="inline-block">
+                            <a href="#contact-info" className="inline-block">
                                 <motion.button
                                     whileHover={{ scale: 1.03, boxShadow: "0 8px 40px rgba(79,195,247,0.28)" }}
-                                    className="rounded-2xl bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] text-2xl font-semibold px-8 py-3 shadow-2xl"
+                                    className="rounded-2xl bg-linear-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] text-2xl font-semibold px-8 py-3 shadow-2xl"
                                 >
                                     Get in Touch
                                 </motion.button>
@@ -132,7 +132,7 @@ export default function ContactPage() {
             </header>
 
             {/* Contact Info (glass light) */}
-            <section className="relative bg-gradient-to-b from-white/80 via-[#E6F7FF]/60 to-white/80 text-[#031A2F] py-14">
+            <section className="relative bg-linear-to-b from-white/80 via-[#E6F7FF]/60 to-white/80 text-[#031A2F] py-14" id="contact-info">
                 <div className="max-w-7xl mx-auto px-6">
                     <FadeUp>
                         <h2 className="text-3xl md:text-4xl font-extrabold text-center mb-6">
@@ -181,7 +181,7 @@ export default function ContactPage() {
                                     target={c.link?.startsWith("http") ? "_blank" : undefined}
                                 >
                                     <motion.div whileHover={{ y: -6 }}>
-                                        <div className="w-14 h-14 rounded-lg inline-flex items-center justify-center bg-gradient-to-br from-[#EAFBFF] to-white text-2xl mb-3 shadow-inner">
+                                        <div className="w-14 h-14 rounded-lg inline-flex items-center justify-center bg-linear-to-br from-[#EAFBFF] to-white text-2xl mb-3 shadow-inner">
                                             {c.icon}
                                         </div>
                                         <h4 className="font-semibold text-2xl">{c.title}</h4>
@@ -219,7 +219,7 @@ export default function ContactPage() {
                     </FadeUp>
 
                     <FadeUp delay={0.08}>
-                        <form onSubmit={handleSubmit} className="relative bg-gradient-to-br from-[#072335]/80 via-[#041726]/60 to-[#072335]/80 border border-[#4FC3F7]/10 p-8 rounded-3xl shadow-xl">
+                        <form onSubmit={handleSubmit} className="relative bg-linear-to-br from-[#072335]/80 via-[#041726]/60 to-[#072335]/80 border border-[#4FC3F7]/10 p-8 rounded-3xl shadow-xl">
                             <div className="absolute -top-6 left-6 w-20 h-20 rounded-full bg-[#4FC3F7]/10 blur-2xl" />
                             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                                 <input name="name" value={form.name} onChange={handleChange} placeholder="Your Name" className="px-4 py-3 rounded-xl bg-[#031A2F]/60 border border-white/6 outline-none" />
@@ -231,7 +231,7 @@ export default function ContactPage() {
                             <textarea name="message" value={form.message} onChange={handleChange} placeholder="Tell us about your project" rows={6} className="mt-4 w-full px-4 py-3 rounded-2xl bg-[#031A2F]/60 border border-white/6 outline-none" />
 
                             <div className="mt-4 flex items-center justify-between gap-4">
-                                <button disabled={sending} className="inline-flex items-center gap-3 bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] px-6 py-3 rounded-2xl font-semibold shadow-lg hover:opacity-95">
+                                <button disabled={sending} className="inline-flex items-center gap-3 bg-linear-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] px-6 py-3 rounded-2xl font-semibold shadow-lg hover:opacity-95">
                                     {sending ? 'Sending…' : 'Send Message'}
                                 </button>
 
@@ -243,7 +243,7 @@ export default function ContactPage() {
             </section>
 
             {/* FAQ (electric blue gradient subtle) */}
-            <section className="bg-gradient-to-b from-[#E8F9FF]/60 via-white/40 to-[#E8F9FF]/60 py-16">
+            <section className="bg-linear-to-b from-[#E8F9FF]/60 via-white/40 to-[#E8F9FF]/60 py-16">
                 <div className="max-w-5xl mx-auto px-6">
                     <FadeUp>
                         <h3 className="text-3xl font-bold text-center mb-8 text-[#031A2F]">Frequently Asked Questions</h3>
@@ -262,7 +262,7 @@ export default function ContactPage() {
 
             {/* Map section (light gradient) */}
             {/* ================= MAP SECTION (Interactive Premium) ================= */}
-            <section className="relative py-20 bg-gradient-to-br from-white via-blue-50/50 to-white overflow-hidden">
+            <section className="relative py-20 bg-linear-to-br from-white via-blue-50/50 to-white overflow-hidden">
 
                 {/* Ambient shapes */}
                 <div className="absolute -top-10 -left-20 w-60 h-60 bg-[#4FC3F7]/20 blur-3xl rounded-full"></div>
@@ -294,7 +294,7 @@ export default function ContactPage() {
                             rel="noreferrer"
                             whileHover={{ scale: 1.05, boxShadow: "0 8px 30px rgba(79,195,247,0.45)" }}
                             className="inline-flex items-center gap-3 px-7 py-3 rounded-full 
-                            bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] 
+                            bg-linear-to-r from-[#4FC3F7] to-[#7ED8FB] 
                             text-[#031A2F] font-semibold shadow-lg"
                         >
                             <svg width="20" height="20" fill="none" viewBox="0 0 24 24">
@@ -349,7 +349,7 @@ export default function ContactPage() {
                     <div className="relative">
                         <div className="flex gap-6 overflow-x-auto pb-4 px-2">
                             {testimonials.map((t, i) => (
-                                <motion.div key={i} whileHover={{ y: -6 }} className="min-w-[300px] bg-gradient-to-br from-[#072335]/80 to-[#041726]/70 border border-white/6 rounded-2xl p-6 shadow-2xl">
+                                <motion.div key={i} whileHover={{ y: -6 }} className="min-w-[300px] bg-linear-to-br from-[#072335]/80 to-[#041726]/70 border border-white/6 rounded-2xl p-6 shadow-2xl">
                                     <p className="text-[#BFD9E8] italic">“{t.quote}”</p>
                                     <div className="mt-4 text-sm">
                                         <strong className="text-white">{t.name}</strong>
@@ -363,12 +363,12 @@ export default function ContactPage() {
             </section>
 
             {/* CTA (dual-tone gradient) */}
-            <section className="py-20 bg-gradient-to-r from-[#062033] via-[#04243a] to-[#053047] text-white">
+            <section className="py-20 bg-linear-to-r from-[#062033] via-[#04243a] to-[#053047] text-white">
                 <div className="max-w-5xl mx-auto px-6 text-center">
                     <motion.h2 initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }} className="text-4xl font-bold mb-4">Ready to start your project? Let’s talk.</motion.h2>
                     <p className="text-[#BFD9E8] mb-8">Our specialists will get back to you within 24 hours.</p>
 
-                    <motion.a whileHover={{ scale: 1.04, boxShadow: '0 10px 40px rgba(79,195,247,0.25)' }} href="#contact-form" className="inline-block px-10 py-4 rounded-3xl bg-gradient-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] font-semibold">Contact Now</motion.a>
+                    <motion.a whileHover={{ scale: 1.04, boxShadow: '0 10px 40px rgba(79,195,247,0.25)' }} href="#contact-form" className="inline-block px-10 py-4 rounded-3xl bg-linear-to-r from-[#4FC3F7] to-[#7ED8FB] text-[#031A2F] font-semibold">Contact Now</motion.a>
                 </div>
             </section>
         </div>

@@ -28,7 +28,7 @@ export default function Navbar() {
     }, []);
 
     return (
-        <nav className="fixed top-4 left-0 right-0 z-[999] flex justify-center px-4">
+        <nav className="fixed top-4 left-0 right-0 z-999 flex justify-center px-4">
             <motion.div
                 initial={{ opacity: 0, y: -20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -68,8 +68,9 @@ export default function Navbar() {
                                 }, 120);
                             }}
                         >
-                            <span className="nav-link navsize cursor-pointer">Services</span>
-
+                            <Link href="/services" className="nav-link navsize cursor-pointer">
+                                <span className="nav-link navsize cursor-pointer">Services</span>
+                            </Link>
                             <AnimatePresence>
                                 {servicesOpen && (
                                     <motion.div
@@ -82,7 +83,7 @@ export default function Navbar() {
                                     >
                                         {/* Finance & Accounts Submenu */}
                                         <div
-                                            className="relative"
+                                            className="relative cursor-pointer"
                                             onMouseEnter={() => {
                                                 if (financeTimeout.current) clearTimeout(financeTimeout.current);
                                                 setFinanceOpen(true);
@@ -93,10 +94,13 @@ export default function Navbar() {
                                                 }, 120);
                                             }}
                                         >
-                                            <div className="dropdown-item flex justify-between">
-                                                Finance & Accounts
-                                                <ChevronRight size={16} />
-                                            </div>
+                                            <Link href="/services/finance">
+                                                <div className="dropdown-item flex justify-between">
+                                                    Finance & Accounts
+                                                    <ChevronRight size={16} />
+                                                </div>
+                                            </Link>
+
 
                                             <AnimatePresence>
                                                 {financeOpen && (
