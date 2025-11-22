@@ -28,7 +28,7 @@ const services = [
     {
         title: "Digital Marketing",
         icon: BarChart3,
-        href: "/services/digital-marketing",
+        href: "/services/digitalmarketing",
         bg: "/marketing.jpg",
         description:
             "SEO, paid ads, brand strategy and digital campaigns engineered for business growth.",
