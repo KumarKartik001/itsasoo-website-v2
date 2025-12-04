@@ -43,6 +43,19 @@ export default function Navbar() {
         setFinanceOpen(false);
     };
 
+
+    const countryLinks = {
+        "USA": "/services/finance/usa",
+        "Canada": "/services/finance/canada",
+        "UK": "/services/finance/uk",
+        "Australia": "/services/finance/australia",
+        "New Zealand": "/services/finance/newzealand",
+        "India & Others": "/services/finance/india",
+    } as const;
+
+    type CountryKey = keyof typeof countryLinks;
+
+
     return (
         <nav className="fixed top-0 left-0 right-0 z-50 flex justify-center px-4">
             <motion.div
@@ -83,8 +96,9 @@ export default function Navbar() {
                                 }, 120);
                             }}
                         >
-                            <span className="nav-link navsize cursor-pointer">Services</span>
-
+                            <Link href={"/services"}>
+                                <span className="nav-link navsize cursor-pointer">Services</span>
+                            </Link>
                             <AnimatePresence>
                                 {servicesOpen && (
                                     <motion.div
@@ -95,7 +109,6 @@ export default function Navbar() {
                                         className="absolute left-0 top-8 mt-4 w-56 
                                         bg-white/95 backdrop-blur-xl rounded-xl p-2 border navdrop shadow-lg"
                                     >
-                                        {/* Finance & Accounts Submenu */}
                                         {/* Finance & Accounts Submenu */}
                                         <div
                                             className="relative cursor-pointer"
@@ -125,8 +138,12 @@ export default function Navbar() {
                                                         className="absolute top-0 left-full ml-2 w-56 bg-white/95 backdrop-blur-xl rounded-xl p-2 border navdrop shadow-lg"
                                                     >
                                                         {/* Sub-items */}
-                                                        {["USA", "Canada", "UK", "Australia", "New Zealand", "India & Others"].map((item) => (
-                                                            <Link key={item} href={`/services/finance/${item.toLowerCase().replace(" ", "")}`} onClick={closeDesktopMenus}>
+                                                        {(Object.keys(countryLinks) as CountryKey[]).map((item) => (
+                                                            <Link
+                                                                key={item}
+                                                                href={countryLinks[item]}
+                                                                onClick={closeDesktopMenus}
+                                                            >
                                                                 <div className="dropdown-item px-3 py-2 rounded-md hover:bg-gray-300 transition-colors duration-200">
                                                                     {item}
                                                                 </div>
