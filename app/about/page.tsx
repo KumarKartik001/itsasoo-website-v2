@@ -270,7 +270,7 @@ export default function AboutPage() {
       <section className="py-16 bg-linear-to-r from-[#E8F9FF] to-[#F5FDFF]">
         <div className="max-w-5xl mx-auto px-6 text-center">
           <FadeIn>
-            <h3 className="text-3xl font-bold text-[#031A2F]">Ready to modernize your finance & IT operations?</h3>
+            <h3 className="text-3xl font-bold text-[#031A2F]">Ready to Modernize your finance & IT operations?</h3>
             <p className="mt-3 text-slate-700">Schedule a discovery call and we’ll craft a compliant roadmap tailored to your needs.</p>
 
             <div className="mt-6 flex items-center justify-center gap-4">
