@@ -191,7 +191,7 @@ export default function CanadaFinancePage() {
                             Payroll Processing
                         </h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Efficient Canadian payroll processing services handle remittances, deductions, and bilingual support for any sector.
+                            Efficient Canadian payroll processing services handle remittances, deductions, and bilingual support for any sector .
 
                         </p>
 
