@@ -144,7 +144,7 @@ export default function AustraliaFinancePage() {
                     <motion.div {...fadeSide(30)}>
                         <h3 className="text-3xl font-extrabold text-black mb-4">Tax Return Preparation</h3>
                         <p className="text-[#455A64] leading-relaxed">
-                            Tax return preparation in Australia helps you maximize refunds and handle complex returns for both individuals and businesses.
+                            Tax return preparation in Australia helps you maximize refunds and handle complex returns for both individuals and businesses and enterprises.
 
                         </p>
 
